@@ -33,7 +33,6 @@ const OrdersList = () => {
   }
 
 
-
   const {
     data: orders,
     isLoading,
@@ -96,6 +95,7 @@ const OrdersList = () => {
 
   if (isLoading) {
     content = <PageLoader />
+
   } else if (isError) {
     content = (
       <div className="no-print mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
@@ -170,7 +170,9 @@ const OrdersList = () => {
 
       </div>
     )
+
   } else if (isSuccess) {
+
     const { ids, entities: ordersEntities } = orders;
 
     // **Filtering Orders Based on Search**
@@ -193,7 +195,7 @@ const OrdersList = () => {
       currentPage * 7
     );
 
-    const tableContent = currentData?.length && currentData.map((orderId) => <Order key={orderId} orderId={orderId} search={search} handleModalOpen={handleModalOpen} />)
+    const tableContent = currentData?.length && currentData.map((orderId) => <Order key={orderId} orderId={orderId} handleModalOpen={handleModalOpen} />)
     const checkOrders = Object.values(ordersEntities).sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
 
 
@@ -302,7 +304,7 @@ const OrdersList = () => {
                 <div className="flex justify-between items-center sm:gap-4">
                   {/* Previous Button */}
                   <button
-                    className={`flex  items-center px-2 py-1 mr-2 sm:mr-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""
+                    className={`flex  items-center px-2 py-1 mr-2 sm:mr-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
                       }`}
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
@@ -316,7 +318,7 @@ const OrdersList = () => {
                     {visiblePages.map((page, idx) => (
                       <button
                         key={idx}
-                        className={`px-2 py-1 rounded ${currentPage === page
+                        className={`px-2 py-1 rounded cursor-pointer ${currentPage === page
                           ? "bg-gray-700 text-white"
                           : " hover:bg-gray-200 text-gray-700 "
                           } ${page === "..." ? "cursor-default" : ""}`}
@@ -329,7 +331,7 @@ const OrdersList = () => {
 
                   {/* Next Button */}
                   <button
-                    className={`flex items-center px-2 py-1 ml-2 sm:ml-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""
+                    className={`flex items-center px-2 py-1 ml-2 sm:ml-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : "cursor-pointer"
                       }`}
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}

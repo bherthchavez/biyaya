@@ -297,7 +297,7 @@ const Login = () => {
                   </div>
 
                 <button
-                  className="w-full px-4 py-3  font-sans text-white bg-[#1E1E1E] hover:bg-slate-700 active:bg-slate-800 rounded-full duration-150">
+                  className="w-full px-4 py-3 cursor-pointer font-sans text-white bg-[#1E1E1E] hover:bg-slate-700 active:bg-slate-800 rounded-full duration-150">
                   LOGIN
                 </button>
 

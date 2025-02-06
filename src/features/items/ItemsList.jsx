@@ -4,19 +4,20 @@ import Item from "./Item";
 import Thead from "../../components/Thead";
 import Tbody from "../../components/Tbody";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import PageLoader from "../../components/PageLoader";
 import { IoMdAdd } from "react-icons/io";
 import PageError from "../../components/PageError";
 import { ImFilesEmpty } from "react-icons/im";
-import { MdErrorOutline } from "react-icons/md";
+import { MdErrorOutline, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 
 const ItemsList = () => {
 
   const [search, setsearch] = useState("");
   const columnsArray = ["ITEM NAME", "DESCRIPTION", "Stock", "PRICE", "CATEGORY"];
-
+  const [currentPage, setCurrentPage] = useState(1);
+  const [visiblePages, setVisiblePages] = useState([]);
 
   const navigate = useNavigate();
   const {
@@ -31,8 +32,52 @@ const ItemsList = () => {
     refetchOnMountOrArgChange: true,
   });
 
-  let content;
+  // Reset to the first page when searching
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search]);
 
+  const updateVisiblePages = useCallback(() => {
+    if (!isSuccess) return; // Only update if data is successfully fetched
+
+    const { ids, entities: itemsEntities } = items;
+
+    // **Filtering Orders Based on Search**
+    const filteredItems = ids.filter((id) => {
+      const item = itemsEntities[id];
+      return (
+        item.name.toLowerCase().indexOf(search.toLowerCase()) > -1 ||
+      item.status.toLowerCase().indexOf(search.toLowerCase()) > -1
+      );
+    });
+
+    const totalPages = Math.ceil(filteredItems.length / 7);
+    let pages = [];
+
+    if (totalPages <= 5) {
+      pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    } else {
+      if (currentPage <= 3) {
+        pages = [1, 2, 3, 4, "...", totalPages];
+      } else if (currentPage >= totalPages - 2) {
+        pages = [1, "...", totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+      } else {
+        pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages];
+      }
+    }
+
+    setVisiblePages(pages);
+  }, [search, items, isSuccess, currentPage]); // Add currentPage as a dependency
+
+
+  // Use useEffect to update visible pages whenever dependencies change
+  useEffect(() => {
+    updateVisiblePages();
+  }, [updateVisiblePages]);
+
+
+
+  let content;
 
   if (isLoading) content = <PageLoader />
 
@@ -120,8 +165,47 @@ const ItemsList = () => {
 
   if (isSuccess) {
     const { ids, entities: itemsEntities } = items;
-    const tableContent = ids?.length && ids.map((itemId) => <Item key={itemId} itemId={itemId} search={search} />)
+
+    // **Filtering Orders Based on Search**
+    const filteredItems = ids.filter((id) => {
+      const item = itemsEntities[id];
+      return (
+        item.name.toLowerCase().indexOf(search.toLowerCase()) > -1 ||
+        item.status.toLowerCase().indexOf(search.toLowerCase()) > -1
+      );
+    });
+
+
+
+    const totalPages = Math.ceil(filteredItems.length / 7);
+
+    const currentData = filteredItems.slice(
+      (currentPage - 1) * 7,
+      currentPage * 7
+    );
+
+    
+    const tableContent = currentData?.length && currentData.map((itemId) => <Item key={itemId} itemId={itemId} />)
     const checkItems = Object.values(itemsEntities).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+
+
+    const handlePrevPage = () => {
+      if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
+
+    const handleNextPage = () => {
+      if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
+    const goToPage = (page) => {
+      setCurrentPage(page);
+    };
+
+    const handlePageClick = (page) => {
+      if (page === "...") return;
+      goToPage(page);
+    };
+
 
     content = (
       <>
@@ -132,7 +216,6 @@ const ItemsList = () => {
                 <h1 className="text-xl font-semibold  text-gray-500 ">
                   Item List
                 </h1>
-                <span className="text-gray-600">{`(${checkItems.length})`}</span>
               </div>
               <span
                 onClick={() => navigate("/inventory/new")}
@@ -218,7 +301,57 @@ const ItemsList = () => {
                   </div>
                 }
               </div>
-              <div className="pt-10 bg-gray-50 rounded-b"></div>
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between items-center text-sm p-4 border-t border-gray-200 bg-gray-50 rounded-b">
+                {/* Showing X to Y of Z entries */}
+                <div className=" text-gray-500">
+                  Showing {Math.min((currentPage - 1) * 7 + 1, filteredItems.length)} to{" "}
+                  {Math.min(currentPage * 7, filteredItems.length)} of {filteredItems.length} entries
+                </div>
+
+
+                {/* Pagination controls */}
+                <div className="flex justify-between items-center sm:gap-4">
+                  {/* Previous Button */}
+                  <button
+                    className={`flex  items-center px-2 py-1 mr-2 sm:mr-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+                      }`}
+                    onClick={handlePrevPage}
+                    disabled={currentPage === 1}
+                    title="Previous page"
+                  >
+                    <MdOutlineKeyboardArrowLeft size={20} /> <p className="hidden sm:flex">prev</p>
+                  </button>
+
+                  {/* Page Numbers */}
+                  <div className="flex">
+                    {visiblePages.map((page, idx) => (
+                      <button
+                        key={idx}
+                        className={`px-2 py-1 rounded cursor-pointer ${currentPage === page
+                          ? "bg-gray-700 text-white"
+                          : " hover:bg-gray-200 text-gray-700 "
+                          } ${page === "..." ? "cursor-default" : ""}`}
+                        onClick={() => handlePageClick(page)}
+                      >
+                        {page}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Next Button */}
+                  <button
+                    className={`flex items-center px-2 py-1 ml-2 sm:ml-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : "cursor-pointer"
+                      }`}
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                    title="Next Page"
+                  >
+
+                    <p className="hidden sm:flex">next</p> <MdOutlineKeyboardArrowRight size={20} />
+                  </button>
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
