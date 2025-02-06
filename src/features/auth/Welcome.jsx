@@ -93,9 +93,8 @@ const Welcome = () => {
   if (isLoading) {
     content = (
       <div aria-label="Page Header" className="">
-        <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-          <div className="mt-2">
-
+        <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
+          <div className="py-6">
             <p className="text-xl font-bold text-gray-900 sm:text-2xl">
               Welcome Back, {name}!
             </p>
