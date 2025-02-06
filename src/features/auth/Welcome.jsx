@@ -550,25 +550,24 @@ const Welcome = () => {
               <div className="font-normal grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
                 <div className="rounded-lg border border-gray-100 bg-white ">
-                  <select className="bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-8 py-2 text-base focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                  </select>
+                
                   <div className="flex flex-col mt-4 mx-4 mb-1">
                     <div className="flex justify-between text-[11px] font-semibold ">
 
                       <label htmlFor="HeadlineAct" className="flex items-center tracking-widest text-gray-500">TOTAL SALES</label>
-                      <select
-                        title="Filter total sales"
-                        name="HeadlineAct"
-                        id="HeadlineAct"
-                        className="text-gray-600 tracking-wide border border-gray-200 outline-none p-1 rounded hover:bg-slate-100 cursor-pointer" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
-                        <option value="thisMonth">This Month</option>
-                        <option value="yesterday">Yesterday</option>
-                        <option value="thisWeek">This Week</option>
-                        <option value="lastWeek">Last Week</option>
-                        <option value="lastMonth">Last Month</option>
-                      </select>
+              
+
+                        <select
+                          title="Filter total sales"
+                          name="HeadlineAct"
+                          id="HeadlineAct"
+                          className="bg-white border border-gray-200 rounded-md shadow-xs px-1 py-1 text-xs focus:outline-none focus:ring-green-500 focus:border-green-500" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
+                          <option value="thisMonth">This Month</option>
+                          <option value="yesterday">Yesterday</option>
+                          <option value="thisWeek">This Week</option>
+                          <option value="lastWeek">Last Week</option>
+                          <option value="lastMonth">Last Month</option>
+                        </select>
                     </div>
                     <div className="text-2xl font-medium text-gray-900"> {formatCurrency(totalSales)}</div>
                   </div>
