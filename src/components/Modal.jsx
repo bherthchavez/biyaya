@@ -9,25 +9,25 @@ function Modal({ isOpen, onClose, onOk, children }) {
       <div className="flex items-center justify-center h-screen pt-4 px-4 pb-20 text-center  ">
      
         <div className="fixed inset-0 transition-opacity">
-          <div className="absolute inset-0 bg-gray-400  dark:bg-gray-900 opacity-80"></div>
+          <div className="absolute inset-0 bg-gray-400 opacity-80"></div>
         </div>
      
         <div
-          className="inline-block bg-white dark:bg-gray-800 rounded-md text-center overflow-hidden shadow-xl transform transition-all sm:my-8 align-middle  w-10/12 sm:max-w-xs"
+          className="inline-block bg-white rounded-md text-center overflow-hidden shadow-xl transform transition-all sm:my-8 align-middle  w-10/12 sm:max-w-xs"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
            <div className="h-1 w-auto bg-red-700"></div>
-           <button  onClick={onClose} className="absolute top-0 right-0 w-12 h-12 m-0 p-1 text-gray-300 hover:text-gray-600 dark:text-gray-500 hover:dark:text-gray-400 ">
+           <button  onClick={onClose} className="absolute top-0 right-0 w-12 h-12 m-0 p-1 text-gray-300 hover:text-gray-600 ">
            <IoIosClose size={35}/>
            </button>
           {children}
 
-          <div className="bg-gray-50 dark:bg-gray-700 px-4 py-3 sm:px-6 flex justify-between gap-6">
+          <div className="bg-gray-50 px-4 py-3 sm:px-6 flex justify-between gap-6">
             <button
               type="button"
-              className="flex h-9 w-full justify-center px-3 sm:px-4 py-1 text-slate-700 border dark:text-slate-200 border-slate-300 dark:border-slate-600  hover:bg-gray-200 dark:hover:bg-gray-900 dark:active:bg-slate-800 rounded-md duration-150"
+              className="flex h-9 w-full justify-center px-3 sm:px-4 py-1 text-slate-700 border border-slate-300  hover:bg-gray-200 rounded-md duration-150"
               onClick={onClose}
             >
               Cancel

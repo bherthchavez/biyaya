@@ -39,9 +39,9 @@ const Order = ({ orderId, search, handleModalOpen }) => {
       return (
         <>
 
-          <tr className="text-base dark:hover:bg-[#151e30] ">
+          <tr className="text-base">
             <td
-              className={`flex gap-2 whitespace-nowrap px-4 sm:px-7 py-3 font-medium text-gray-700 dark:text-gray-300`}
+              className={`flex gap-2 whitespace-nowrap px-4 sm:px-7 py-3 font-medium text-gray-700`}
             >
               <div
                 className="relative  text-gray-400 my-auto font-normal cursor-pointer hover:text-gray-600"
@@ -51,19 +51,19 @@ const Order = ({ orderId, search, handleModalOpen }) => {
 
                 <BsThreeDotsVertical size={20} />
                 {viewReceipt &&
-                  <div className="absolute left-[-8px] z-50 origin-top-right bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 mt-2 w-48 rounded-md shadow-lg">
-                    <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l rotate-45 absolute left-3"></div>
+                  <div className="absolute left-[-8px] z-50 origin-top-right bg-white border border-gray-200 mt-2 w-48 rounded-md shadow-lg">
+                    <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l border-gray-200 rotate-45 absolute left-3"></div>
 
                     <div className="py-2">
                       <div
                         onClick={() => handleModalOpen(order.id, false)}
-                        className="cursor-pointer block text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-gray-400"
+                        className="cursor-pointer block text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                       >
                         View Receipt
                       </div>
                       {isAdmin &&
                         <div
-                          className="cursor-pointer block text-left px-4 py-2 text-sm text-red-700 dark:text-gray-500 hover:bg-red-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-gray-400"
+                          className="cursor-pointer block text-left px-4 py-2 text-sm text-red-700 hover:bg-red-100 hover:text-gray-900"
                           onClick={() => handleModalOpen(order.id, true)}
                         >
 
@@ -82,20 +82,20 @@ const Order = ({ orderId, search, handleModalOpen }) => {
               </div>
             </td>
 
-            <td className={`whitespace-nowrap  px-8 py-2  text-gray-900 dark:text-gray-300`}>
-              <p className="text-sm text-gray-700 dark:text-gray-500">
+            <td className={`whitespace-nowrap  px-8 py-2  text-gray-900`}>
+              <p className="text-sm text-gray-700">
                 {order.dateTime}
               </p>
             </td>
 
-            <td className={`whitespace-nowrap px-8 py-2  text-gray-900 dark:text-gray-300`}>
+            <td className={`whitespace-nowrap px-8 py-2  text-gray-900`}>
               <p className="">{order.items.reduce((totalItem, item) => totalItem + Number(item.qty), 0)} </p>
             </td>
-            <td className={`whitespace-nowrap px-8 py-2 font-semibold  text-gray-900 dark:text-gray-300`}>
+            <td className={`whitespace-nowrap px-8 py-2 font-semibold  text-gray-900`}>
               <p className="">{formatCurrency(order.total)} </p>
             </td>
 
-            <td className={`whitespace-nowrap px-8 py-2 text-sm  text-gray-900 dark:text-gray-300 `}>
+            <td className={`whitespace-nowrap px-8 py-2 text-sm  text-gray-900 `}>
               {order.barista}
             </td>
           </tr>

@@ -96,7 +96,7 @@ const Welcome = () => {
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="mt-2">
 
-            <p className="text-xl font-bold text-gray-900 sm:text-2xl dark:text-gray-200">
+            <p className="text-xl font-bold text-gray-900 sm:text-2xl">
               Welcome Back, {name}!
             </p>
 
@@ -271,7 +271,7 @@ const Welcome = () => {
       <div aria-label="Page Header" className="">
         <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="mt-2">
-            <p className="text-xl font-bold text-gray-700 sm:text-2xl dark:text-gray-200">
+            <p className="text-xl font-bold text-gray-700 sm:text-2xl">
               Welcome Back, {name}!
             </p>
 
@@ -281,7 +281,7 @@ const Welcome = () => {
             <div className="mx-auto max-w-screen-xl  py-3  md:py-5">
               <dl className="font-normal grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <article className="rounded-lg border border-gray-100 bg-white p-6">
-                  <div className="flex  text-sm flex-col gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+                  <div className="flex  text-sm flex-col gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <MdErrorOutline size={30} />
@@ -291,7 +291,7 @@ const Welcome = () => {
                   </div>
                 </article>
                 <article className="rounded-lg border border-gray-100 bg-white p-6">
-                  <div className="flex  text-sm flex-col gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+                  <div className="flex  text-sm flex-col gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <MdErrorOutline size={30} />
@@ -301,7 +301,7 @@ const Welcome = () => {
                   </div>
                 </article>
                 <article className="rounded-lg border border-gray-100 bg-white p-6">
-                  <div className="flex  text-sm flex-col gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+                  <div className="flex  text-sm flex-col gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <MdErrorOutline size={30} />
@@ -311,7 +311,7 @@ const Welcome = () => {
                   </div>
                 </article>
                 <article className="rounded-lg border border-gray-100 bg-white p-6">
-                  <div className="flex  text-sm flex-col gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+                  <div className="flex  text-sm flex-col gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <MdErrorOutline size={30} />
@@ -329,20 +329,20 @@ const Welcome = () => {
               <div className=" h-96 min-w-full rounded bg-white col-span-1 lg:col-span-2">
                 <h1 className="py-4 px-6 text-sm font-medium text-gray-700 ">Recent Orders</h1>
                 <div className="overflow-x-auto h-full bg-white min-w-full shadow-sm ">
-                  <table className="min-w-full  divide-y divide-gray-200 dark:divide-gray-700 text-sm leading-normal">
-                    <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0">
+                  <table className="min-w-full  divide-y divide-gray-200 text-sm leading-normal">
+                    <thead className="bg-gray-50 sticky top-0">
                       <tr className="sticky">
                         {columnsOrders.map((column, index) => (
-                          <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1] dark:bg-gray-700  text-xs font-normal text-gray-500 dark:text-gray-400 uppercase tracking-wider`}>
+                          <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1]  text-xs font-normal text-gray-500 uppercase tracking-wider`}>
                             {column}
                           </th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="divide-y dark:bg-slate-800 divide-gray-200 dark:divide-gray-700 ">
+                    <tbody className="divide-y divide-gray-200 ">
                     </tbody>
                   </table>
-                  <div className="flex text-sm flex-col p-5 gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+                  <div className="flex text-sm flex-col p-5 gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <MdErrorOutline size={30} />
@@ -357,20 +357,20 @@ const Welcome = () => {
               <div className="h-96 mt-20 lg:mt-0 min-w-full rounded bg-white">
                 <h1 className="py-4 px-6 text-sm font-medium text-gray-700 ">Item Status</h1>
                 <div className="overflow-x-auto h-full bg-white min-w-full shadow-sm ">
-                  <table className="min-w-full  divide-y divide-gray-200 dark:divide-gray-700 text-sm leading-normal">
-                    <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0">
+                  <table className="min-w-full  divide-y divide-gray-200 text-sm leading-normal">
+                    <thead className="bg-gray-50 sticky top-0">
                       <tr className="sticky">
                         {columnsItems.map((column, index) => (
-                          <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1] dark:bg-gray-700  text-xs font-normal text-gray-500 dark:text-gray-400 uppercase tracking-wider`}>
+                          <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1]  text-xs font-normal text-gray-500 uppercase tracking-wider`}>
                             {column}
                           </th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="divide-y dark:bg-slate-800  divide-gray-200 dark:divide-gray-700 ">
+                    <tbody className="divide-y  divide-gray-200 ">
                     </tbody>
                   </table>
-                  <div className="flex text-sm flex-col p-5 gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+                  <div className="flex text-sm flex-col p-5 gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <MdErrorOutline size={30} />
@@ -530,7 +530,6 @@ const Welcome = () => {
     }
 
 
-
     content = (
       <div aria-label="Page Header">
         <ReceiptModal isOpen={isModalOpen} onClose={handleModalClose} orderId={orderId} />
@@ -539,7 +538,7 @@ const Welcome = () => {
           <div className="mt-2">
             <div className="flex justify-between">
               <div>
-                <p className="text-xl font-bold text-gray-700 sm:text-2xl dark:text-gray-200">
+                <p className="text-xl font-bold text-gray-700 sm:text-2xl">
                   Welcome Back, {name}!
                 </p>
                 <p className="mt-1.5 text-sm text-gray-500">
@@ -557,7 +556,7 @@ const Welcome = () => {
                       <div className="flex items-center tracking-widest text-gray-500">TOTAL SALES</div>
                       <select
                         title="Filter total sales"
-                        className="text-gray-600 tracking-wide border p-1 rounded hover:bg-slate-100 cursor-pointer" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
+                        className="text-gray-600 tracking-wide border border-gray-200 outline-none p-1 rounded hover:bg-slate-100 cursor-pointer" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
                         <option value="thisMonth">This Month</option>
                         <option value="yesterday">Yesterday</option>
                         <option value="thisWeek">This Week</option>
@@ -615,7 +614,7 @@ const Welcome = () => {
                     </div>
 
                     <span className="rounded-xl bg-gray-100 p-3 text-green-600">
-                      <PiReceiptLight size={25} className="text-gray-500 dark:text-gray-500" />
+                      <PiReceiptLight size={25} className="text-gray-500" />
                     </span>
                   </div>
                   <div className="flex h-14">
@@ -668,7 +667,7 @@ const Welcome = () => {
                     </div>
 
                     <span className="rounded-xl bg-orange-100 p-3 text-orange-600">
-                      <PiMoneyLight size={25} className="text-orange-500 dark:text-gray-500" />
+                      <PiMoneyLight size={25} className="text-orange-500" />
 
                     </span>
                   </div>
@@ -688,7 +687,7 @@ const Welcome = () => {
                     </div>
 
                     <span className="rounded-xl bg-gray-100 p-3 text-green-600">
-                      <PiReceiptLight size={25} className="text-gray-500 dark:text-gray-500" />
+                      <PiReceiptLight size={25} className="text-gray-500" />
                     </span>
                   </div>
                 </div>
@@ -704,25 +703,25 @@ const Welcome = () => {
               <div className="h-96 mt-20 lg:mt-0 min-w-full rounded bg-white">
                 <h1 className="py-4 px-6 text-sm font-medium text-gray-700 ">Item Status</h1>
                 <div className="overflow-x-auto h-full bg-white min-w-full shadow-sm ">
-                  <table className="min-w-full  divide-y divide-gray-200 dark:divide-gray-700 text-sm leading-normal">
-                    <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0">
+                  <table className="min-w-full  divide-y divide-gray-200 text-sm leading-normal">
+                    <thead className="bg-gray-50 sticky top-0">
                       <tr className="sticky">
                         {columnsItems.map((column, index) => (
-                          <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1] dark:bg-gray-700  text-xs font-normal text-gray-500 dark:text-gray-400 uppercase tracking-wider`}>
+                          <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1]  text-xs font-normal text-gray-500 uppercase tracking-wider`}>
                             {column}
                           </th>
                         ))}
                       </tr>
                     </thead>
-                    <tbody className="divide-y dark:bg-slate-800  divide-gray-200 dark:divide-gray-700 ">
+                    <tbody className="divide-y  divide-gray-200 ">
 
                       {items.length
                         ? items.map((item, idx) => (
 
-                          <tr key={idx} className=" dark:hover:bg-[#151e30] ">
+                          <tr key={idx} className="">
 
                             <td
-                              className={`sm:flex gap-4 whitespace-nowrap px-6 py-3 font-medium text-gray-900 dark:text-gray-300`}
+                              className={`sm:flex gap-4 whitespace-nowrap px-6 py-3 font-medium text-gray-900`}
                             >
                               <div className="flex flex-col text-left">
                                 <h1 className="font-medium">{item.name} </h1>
@@ -731,7 +730,7 @@ const Welcome = () => {
 
 
 
-                            <td className={`whitespace-nowrap  font-medium  px-6 py-3  text-gray-600 dark:text-gray-500 `}>
+                            <td className={`whitespace-nowrap  font-medium  px-6 py-3  text-gray-600 `}>
                               <div className="flex gap-1 justify-start text-xs font-semibold ">
                                 <div
                                   className={` ${item.status === "In Stock"
@@ -748,7 +747,7 @@ const Welcome = () => {
                             </td>
                           </tr>
                         ))
-                        : <div className="flex  p-5  dark:bg-gray-900 text-gray-700 dark:text-gray-400">
+                        : <div className="flex  p-5 text-gray-700">
                           <div className="flex space-x-2">
                             <Spenner />
                             <div className='m-auto'>Getting items...</div>

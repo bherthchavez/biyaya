@@ -45,7 +45,7 @@ const LogsComponent = ({ logs, onUpdateLog }) => {
                         key={idx}
                         onClick={() => onUpdateLog(log)}
                         title="Click to mark as read"
-                        className={`${!log?.seen ? ` bg-gray-100 hover:bg-50` : `bg-white hover:bg-gray-100`} relative flex  cursor-pointer justify-between items-center gap-3 py-4 px-5 border-b text-sm`}>
+                        className={`${!log?.seen ? ` bg-gray-100 hover:bg-50` : `bg-white hover:bg-gray-100`} relative flex  cursor-pointer justify-between items-center gap-3 py-4 px-5 border-b border-gray-200 text-sm`}>
                         {!log?.seen
                             && <div className="p-1 absolute top-3 right-3 bg-red-500 rounded-full animate-pulse"></div>
                         }

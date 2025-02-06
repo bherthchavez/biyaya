@@ -22,10 +22,10 @@ const Item = ({ itemId, search }) => {
       const handleEdit = () => navigate(`/inventory/${itemId}`);
 
       return (
-        <tr onClick={handleEdit} className="hover:bg-slate-200 text-lg dark:hover:bg-[#151e30] cursor-pointer">
+        <tr onClick={handleEdit} className="hover:bg-gray-100 text-lg cursor-pointer">
 
           <td
-            className={`sm:flex gap-4 whitespace-nowrap px-8 py-3 font-medium text-gray-900 dark:text-gray-300`}
+            className={`sm:flex gap-4 whitespace-nowrap px-8 py-3 font-medium text-gray-900`}
           >
             <div className="flex items-center">
               <div className="flex-shrink-0 h-10 w-10 sm:h-12 sm:w-12">
@@ -36,7 +36,7 @@ const Item = ({ itemId, search }) => {
                       ? item.avatar
                       : iconPicture
                   }
-                  className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-slate-300  dark:border-slate-600 object-cover"
+                  className="h-10 w-10 sm:h-12 sm:w-12 rounded-full border border-slate-300 object-cover"
                 />
               </div>
               <div className="ml-4">
@@ -47,16 +47,16 @@ const Item = ({ itemId, search }) => {
 
           </td>
 
-          <td className={`whitespace-nowrap  px-8 py-3  text-gray-900 dark:text-gray-300`}>
+          <td className={`whitespace-nowrap  px-8 py-3  text-gray-900`}>
             <div className="flex-wrap">
-              <p className=" text-sm text-gray-700 dark:text-gray-500"
+              <p className=" text-sm text-gray-700"
                 title={item.description}
               >
                 {item.description.slice(0, 30)}...
               </p>
             </div>
           </td>
-          <td className={`whitespace-nowrap px-8 py-2  font-medium text-gray-600 dark:text-gray-500 `}>
+          <td className={`whitespace-nowrap px-8 py-2  font-medium text-gray-600 `}>
            <div className="flex gap-1 justify-start text-sm">
 
             <h1
@@ -74,14 +74,14 @@ const Item = ({ itemId, search }) => {
            </div>
           </td>
 
-          <td className={`whitespace-nowrap px-8 py-2  text-sm text-gray-900 dark:text-gray-300`}>
+          <td className={`whitespace-nowrap px-8 py-2  text-sm text-gray-900`}>
             <div className="flex-nowrap">
               <p className="capitalize">{formatCurrency(item.price)} </p>
 
             </div>
           </td>
 
-          <td className={`whitespace-nowrap px-8 py- text-sm  text-gray-900 dark:text-gray-300 `}>
+          <td className={`whitespace-nowrap px-8 py- text-sm  text-gray-900 `}>
             {item.category}
           </td>
 

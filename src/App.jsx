@@ -27,7 +27,7 @@ function App() {
 
 
   return (
-    <div className="h-full  w-full  dark:bg-slate-900">
+    <div className="h-full  w-full">
       <POSProvider >
         <Routes>
           <Route path="/" element={<Layout />}>

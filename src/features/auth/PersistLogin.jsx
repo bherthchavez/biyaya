@@ -59,8 +59,8 @@ const PersistLogin = () => {
         console.log('error')
         content = (
 
-            <div className="flex items-center justify-center h-screen p-5 bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-400 min-w-screen">
-                <div className="text-gray-900 dark:text-gray-300 flex flex-col items-center">
+            <div className="flex items-center justify-center h-screen p-5 bg-gray-100 text-gray-700 min-w-screen">
+                <div className="text-gray-900 flex flex-col items-center">
                     <div className="flex justify-center items-center">
 
                         <BiErrorCircle className="text-2xl mr-2" />
@@ -69,7 +69,7 @@ const PersistLogin = () => {
                         </p>
                     </div>
                     <Link to="/">
-                        <p className="mt-6 text-sm px-4 py-2 text-white border dark:text-gray-300 font-normal border-gray-200 dark:border-slate-600 bg-black dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full duration-150">
+                        <p className="mt-6 text-sm px-4 py-2 text-white border font-normal border-gray-200 bg-black hover:bg-gray-700 rounded-full duration-150">
                             Please Login Again</p>
                     </Link>
                 </div>

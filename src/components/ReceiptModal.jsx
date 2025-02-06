@@ -163,17 +163,17 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
       <div className="flex items-center justify-center  pt-4 px-4 pb-20 text-center  ">
 
         <div className="fixed inset-0 transition-opacity">
-          <div className="absolute inset-0 bg-black  dark:bg-gray-900 opacity-80"></div>
+          <div className="absolute inset-0 bg-black opacity-80"></div>
         </div>
 
         <div
-          className="inline-block bg-white dark:bg-gray-800 rounded-xl text-center overflow-hidden  transform transition-all  sm:my-8 align-middle  w-full sm:w-8/12 lg:w-4/12"
+          className="inline-block bg-white rounded-xl text-center overflow-hidden  transform transition-all  sm:my-8 align-middle  w-full sm:w-8/12 lg:w-4/12"
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-headline"
         >
 
-          <div className="flex justify-between border-b-2  no-print">
+          <div className="flex justify-between border-b-2 border-gray-200  no-print">
             {backDateOrder
               ? <div className="flex py-2 px-4 items-center ">
                 <h1 className=" text-gray-700 text-lg uppercase font-medium">Back Date Order</h1>
@@ -188,18 +188,18 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
 
                   <BsThreeDotsVertical />
                   {printNav &&
-                    <div className="absolute left-[-6px] z-50 origin-top-right bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 mt-2 w-48 rounded-md shadow-lg">
+                    <div className="absolute left-[-6px] z-50 origin-top-right bg-white border border-gray-200 mt-2 w-48 rounded-md shadow-lg">
                       <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l rotate-45 absolute left-3"></div>
 
                       <div className="py-2">
                         <span
                           onClick={() => window.print()}
-                          className="cursor-pointer block text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-gray-400"
+                          className="cursor-pointer block text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         >
                           Print                       </span>
                         <span
                           onClick={handleDownloadPDF}
-                          className="cursor-pointer block text-left px-4 py-2 text-sm text-gray-700 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-gray-400"
+                          className="cursor-pointer block text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         >
                           Download as PDF
                         </span>
@@ -214,7 +214,7 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
             <button onClick={() => {
               onClose()
               setSelectedDate("")
-            }} className=" w-12 h-12 m-0 p-1 text-gray-300 hover:text-gray-600 dark:text-gray-500 hover:dark:text-gray-400 ">
+            }} className=" w-12 h-12 m-0 p-1 cursor-pointer text-gray-300 hover:text-gray-600">
               <IoIosClose size={35} />
             </button>
           </div>
@@ -238,7 +238,7 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
               <div className="flex my-auto">
                 <button
                   type="button"
-                  className="rounded-full text-gray-200 dark:text-gray-300  bg-black hover:bg-gray-800 px-4 py-2 text-xs tracking-widest font-medium  sm:w-24"
+                  className="rounded-full text-gray-200 bg-black hover:bg-gray-800 px-4 py-2 text-xs tracking-widest font-medium  sm:w-24"
                   onClick={onUpdateOrder}
                 >
                   UPDATE
@@ -246,20 +246,20 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
               </div>
             </div>}
 
-          <div ref={printRef} id="print-area" className="bg-white  dark:bg-gray-700 py-10 px-7">
+          <div ref={printRef} id="print-area" className="bg-white py-10 px-7">
             <div className={`${backDateOrder ? showItems ? 'h-auto' : 'h-20' : 'h-auto'} flex flex-col justify-between gap-7 transition-all ease-in-out duration-300`}>
 
               <div className="flex flex-col gap-5 border-dashed border-gray-500 border-b pb-5">
                 <div className="flex justify-between pb-5 items-center text-left border-dashed border-b border-gray-500">
               
-                  <div className="flex items-center gap-3 text-gray-500 dark:text-gray-400">
+                  <div className="flex items-center gap-3 text-gray-500">
                     {!backDateOrder && <img src={biyayaLogo} alt="Logo" className="w-20 " />}
                     <div className="font-normal text-xs">
                       <div className="mb-2">
                         <p className="text-[10px] tracking-wider">ORDER NO.</p>
                         <h2 className="text-black ">{order?.orderNo}</h2>
                       </div>
-                      <div className="text-gray-500 dark:text-gray-400">
+                      <div className="text-gray-500">
                         <p className="text-[10px] tracking-wider">BARISTA</p>
                         <h2 className="text-black ">{order?.barista}</h2>
                       </div>
@@ -268,13 +268,13 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
                   </div>
 
 
-                  <div className="text-right w-24 text-xs text-gray-500 dark:text-gray-400">
+                  <div className="text-right w-24 text-xs text-gray-500">
                     <div className="mb-2">
                       <p className="text-[10px] tracking-wider">DATE/TIME</p>
 
                       <h2 className="text-black ">{order?.dateTime}</h2>
                     </div>
-                    <div className="text-gray-500 dark:text-gray-400">
+                    <div className="text-gray-500">
                       <p className="text-[10px] tracking-wider">ORDER TYPE</p>
                       <h2 className="text-black ">{order?.orderType}</h2>
                     </div>

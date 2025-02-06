@@ -53,23 +53,23 @@ const RecentOrders = ({ orders, handleModalOpen, columnsOrders }) => {
       <h1 className="py-4 px-6 text-sm font-medium text-gray-700 ">Orders</h1>
       <div ref={containerRef} className="overflow-x-auto h-full bg-white min-w-full shadow-sm ">
 
-        <table className="min-w-full  divide-y divide-gray-200 dark:divide-gray-700 text-sm leading-normal">
-          <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0">
+        <table className="min-w-full  divide-y divide-gray-200 text-sm leading-normal">
+          <thead className="bg-gray-50 sticky top-0">
             <tr className="sticky">
               {columnsOrders.map((column, index) => (
-                <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1] dark:bg-gray-700  text-xs font-normal text-gray-500 dark:text-gray-400 uppercase tracking-wider`}>
+                <th key={index} className={`mx-auto text-start px-6 py-2 bg-[#F1F1F1] text-xs font-normal text-gray-500 uppercase tracking-wider`}>
                   {column}
                 </th>
               ))}
             </tr>
           </thead>
-          <tbody className="divide-y dark:bg-slate-800 divide-gray-200 dark:divide-gray-700 ">
+          <tbody className="divide-y divide-gray-200 ">
             {orders.length !== 0
               && orders.slice(0, visibleOrders).map((order, idx) => (
-                <tr key={idx} onClick={(() => handleModalOpen(order.id))} className="hover:bg-gray-100 cursor-pointer dark:hover:bg-[#151e30] ">
+                <tr key={idx} onClick={(() => handleModalOpen(order.id))} className="hover:bg-gray-100 cursor-pointer ">
 
                   <td
-                    className={`sm:flex gap-4 whitespace-nowrap px-6 py-3 font-medium text-gray-900 dark:text-gray-300`}
+                    className={`sm:flex gap-4 whitespace-nowrap px-6 py-3 font-medium text-gray-900`}
                   >
                     <div className="flex flex-col text-left">
                       <h1 className="font-medium">{order.orderNo} </h1>
@@ -77,20 +77,20 @@ const RecentOrders = ({ orders, handleModalOpen, columnsOrders }) => {
                     </div>
                   </td>
 
-                  <td className={`whitespace-nowrap  px-6 py-3  text-gray-900 dark:text-gray-300`}>
-                    <p className=" text-gray-700 dark:text-gray-500">
+                  <td className={`whitespace-nowrap  px-6 py-3  text-gray-900`}>
+                    <p className=" text-gray-700">
                       {order.dateTime}
                     </p>
                   </td>
 
-                  <td className={`whitespace-nowrap px-6 py-3  text-gray-900 dark:text-gray-300`}>
+                  <td className={`whitespace-nowrap px-6 py-3  text-gray-900`}>
                     <p className="">{order.items.reduce((totalItem, item) => totalItem + Number(item.qty), 0)} </p>
                   </td>
-                  <td className={`whitespace-nowrap px-6 py-3 font-semibold  text-gray-900 dark:text-gray-300`}>
+                  <td className={`whitespace-nowrap px-6 py-3 font-semibold  text-gray-900`}>
                     <p className="">{formatCurrency(order.total)} </p>
                   </td>
 
-                  <td className={`whitespace-nowrap px-6 py-3 text-gray-900 dark:text-gray-300 `}>
+                  <td className={`whitespace-nowrap px-6 py-3 text-gray-900 `}>
                     {order.barista}
                   </td>
                 </tr>
@@ -98,7 +98,7 @@ const RecentOrders = ({ orders, handleModalOpen, columnsOrders }) => {
           </tbody>
         </table>
         {orders.length === 0
-          && <div className="flex text-sm flex-col p-5 gap-3  dark:bg-gray-900 text-gray-400 dark:text-gray-400">
+          && <div className="flex text-sm flex-col p-5 gap-3 text-gray-400">
             <div className="flex flex-col  m-auto ">
               <div className="m-auto">
                 <ImFilesEmpty size={30} />

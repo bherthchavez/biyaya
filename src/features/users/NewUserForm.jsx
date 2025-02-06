@@ -141,15 +141,15 @@ const NewUserForm = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 ">
-        <h1 className="mb-2 text-xl font-semibold  text-gray-500 sm:text-2xl dark:text-gray-200">
+        <h1 className="mb-2 text-xl font-semibold  text-gray-500 sm:text-2xl">
           New User
         </h1>
-        <p className="text-red-700 sm:text-xl dark:text-gray-200">{error?.data?.message}</p>
+        <p className="text-red-700 sm:text-xl">{error?.data?.message}</p>
 
         <div className="mt-5 md:col-span-2">
           <form onSubmit={onSaveUserClicked} >
             <div className="shadow overflow-hidden rounded-md">
-              <div className="space-y-6 bg-white dark:bg-slate-800 px-4 py-5 sm:p-10">
+              <div className="space-y-6 bg-white px-4 py-5 sm:p-10">
                 <div className="grid grid-cols-2 gap-20">
                   <div className="col-span-2 sm:col-span-1 ">
                     <div className="">
@@ -157,13 +157,13 @@ const NewUserForm = () => {
                     </div>
                     <div className="mt-10">
                       <label
-                        className="block text-base text-gray-500 dark:text-gray-200"
+                        className="block text-base text-gray-500"
                         htmlFor="name"
                       >
                         Name
                       </label>
                       <input
-                        className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
+                        className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900 border  border-gray-200  outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
                         id="name"
                         name="name"
                         type="text"
@@ -176,13 +176,13 @@ const NewUserForm = () => {
                     <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
                         <label
-                          className="block text-base text-gray-500 dark:text-gray-200"
+                          className="block text-base text-gray-500"
                           htmlFor="position"
                         >
                           Position
                         </label>
                         <input
-                          className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
+                          className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900 border  border-gray-200  outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
                           id="position"
                           name="position"
                           type="text"
@@ -195,7 +195,7 @@ const NewUserForm = () => {
                       <div className="">
                         <label
                           htmlFor="country"
-                          className="block text-base  text-gray-500 dark:text-gray-200"
+                          className="block text-base  text-gray-500"
                         >
                           Roles
                         </label>
@@ -204,7 +204,7 @@ const NewUserForm = () => {
                           name="roles"
                           value={roles}
                           onChange={onRolesChanged}
-                          className="mt-1 block w-full py-3 px-3 text-base font-normal text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md"
+                          className="mt-1 block w-full py-3 px-3 text-base font-normal text-gray-900 border  border-gray-200  outline-none focus:border-gray-300  focus:shadow-sm rounded-md"
                         >
                           <option defaultValue value={""}>
                             ---
@@ -219,16 +219,16 @@ const NewUserForm = () => {
                     <div className="">
                       <label
                         htmlFor="username"
-                        className={`block text-sm font-base text-gray-500 dark:text-gray-200`}
+                        className={`block text-sm font-base text-gray-500`}
                       >
                         Username{" "}
-                        <span className="nowrap text-[11px] text-red-600 dark:text-red-400">
+                        <span className="nowrap text-[11px] text-red-600">
                           {!validUsername ? "3-20 letters" : ""}
                         </span>
                       </label>
 
                       <input
-                        className={` w-full sm:w-1/2 mt-1 px-3 py-3 text-base font-normal  border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validUserClass}`}
+                        className={` w-full sm:w-1/2 mt-1 px-3 py-3 text-base font-normal  border  border-gray-200  outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validUserClass}`}
                         id="username"
                         name="username"
                         type="text"
@@ -240,11 +240,11 @@ const NewUserForm = () => {
 
                     <div className="mt-5">
                       <label
-                        className="mt-2 block text-base  text-gray-500 dark:text-gray-200"
+                        className="mt-2 block text-base  text-gray-500"
                         htmlFor="password"
                       >
                         Password{" "}
-                        <span className="nowrap text-xs text-red-600 dark:text-red-400 font-normal">
+                        <span className="nowrap text-xs text-red-600 font-normal">
                           {!validPassword
                             ? "4-12 characters including !@#$%"
                             : ""}
@@ -259,7 +259,7 @@ const NewUserForm = () => {
                             onClick={togglePasswordVisiblity}
                           />
                           <label
-                            className=" bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-xl px-2 py-1 mt-1 text-lg text-gray-600 font-mono cursor-pointer js-password-label"
+                            className=" bg-white hover:bg-slate-1 rounded-xl px-2 py-1 mt-1 text-lg text-gray-600 font-mono cursor-pointer js-password-label"
                             htmlFor="toggle"
                           >
                             {passwordShown ? (
@@ -270,7 +270,7 @@ const NewUserForm = () => {
                           </label>
                         </div>
                         <input
-                          className={`leading-tight w-full mt-1 px-3 py-3 text-base font-normal border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validPwdClass}`}
+                          className={`leading-tight w-full mt-1 px-3 py-3 text-base font-normal border  border-gray-200  outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validPwdClass}`}
                           id="password"
                           name="password"
                           type={passwordShown ? "text" : "password"}
@@ -292,15 +292,15 @@ const NewUserForm = () => {
               </div>
 
               {/* Footer */}
-              <div className="flex flex-col sm:flex-row gap-3 text-base justify-end bg-gray-50 dark:bg-slate-800 px-4 py-3 text-right sm:px-6 dark:border-t dark:border-slate-700">
+              <div className="flex flex-col sm:flex-row gap-3 text-base justify-end bg-gray-50 px-4 py-3 text-right sm:px-6">
                 <button
                   title="Cancel"
                   onClick={() => !btnCancel && navigate("/settings")}
                   className={
                     `${!btnCancel
-                      ? `cursor-pointer text-black  dark:text-gray-300 border-gray-400 dark:border-slate-600 dark:bg-gray-700 hover:bg-gray-200 `
-                      : ` text-black  dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 `
-                    }flex justify-center px-6 py-2 rounded-full border dark:hover:bg-gray-800 dark:active:bg-slate-800`} >
+                      ? `cursor-pointer text-black border-gray-400 hover:bg-gray-200 `
+                      : ` text-black border-gray-200 bg-gray-400 hover:bg-gray-400 `
+                    }flex justify-center px-6 py-2 rounded-full border`} >
                   <BsArrowLeftShort size={20} className='mr-2' />
                   Cancel
                 </button>
@@ -312,9 +312,9 @@ const NewUserForm = () => {
                   type="submit"
                   className={
                     `${canSave
-                      ? `cursor-pointer flex  dark:text-gray-300 border-gray-400 dark:border-slate-600 bg-black  dark:bg-gray-700 hover:bg-gray-700`
-                      : `  dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400`
-                    } flex justify-center items-center px-3 sm:px-7 py-2 text-white border  dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`}
+                      ? `cursor-pointer flex border-gray-400 bg-black  hover:bg-gray-700`
+                      : ` border-gray-200 bg-gray-400 hover:bg-gray-400`
+                    } flex justify-center items-center px-3 sm:px-7 py-2 text-white border  rounded-full`}
                 >
                   <AiOutlineSave size={20} className="mr-2" />
                   Save
@@ -334,7 +334,7 @@ const ImageUploadField = ({ imageView, onChange }) => (
   <div className="">
     <div className="mt-1 flex flex-col gap-4 sm:gap-0 sm:flex-row items-center">
       <div className="flex flex-col items-center gap-1">
-        <label className="block text-base text-center sm:text-left text-gray-500 dark:text-gray-200">User Photo</label>
+        <label className="block text-base text-center sm:text-left text-gray-500">User Photo</label>
         {imageView ? (
           <div>
             <Image data={imageView} size="h-40 w-40" rounded="rounded-full" />
@@ -348,7 +348,7 @@ const ImageUploadField = ({ imageView, onChange }) => (
       </div>
       <label
         htmlFor="file-upload"
-        className="sm:ml-5 cursor-pointer text-[10px] px-4 py-2 text-black border dark:text-gray-300 font-medium border-gray-300 dark:border-slate-600 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full duration-150"
+        className="sm:ml-5 cursor-pointer border text-[10px] px-4 py-2 text-black borde font-medium border-gray-300 hover:bg-gray-200 rounded-full duration-150"
       >
         <span className="whitespace-nowrap">Upload Photo</span>
         <input id="file-upload" name="image" type="file" className="sr-only" accept="image/png, image/jpeg" onChange={onChange} />
