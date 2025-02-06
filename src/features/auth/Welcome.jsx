@@ -550,9 +550,27 @@ const Welcome = () => {
 
                 <div className="rounded-lg border border-gray-100 bg-white ">
                   <div className="flex flex-col mt-4 mx-4 mb-1">
+                    <div>
+                      <label htmlFor="HeadlineAct" className="block text-sm font-medium text-gray-900"> Headliner </label>
+
+                      <select
+                        name="HeadlineAct"
+                        id="HeadlineAct"
+                        className="mt-1.5 w-full rounded-lg border border-gray-300 text-gray-700 sm:text-sm"
+                      >
+                        <option value="">Please select</option>
+                        <option value="JM">John Mayer</option>
+                        <option value="SRV">Stevie Ray Vaughn</option>
+                        <option value="JH">Jimi Hendrix</option>
+                        <option value="BBK">B.B King</option>
+                        <option value="AK">Albert King</option>
+                        <option value="BG">Buddy Guy</option>
+                        <option value="EC">Eric Clapton</option>
+                      </select>
+                    </div>
                     <div className="flex justify-between text-[11px] font-semibold ">
 
-                      <label  htmlFor="HeadlineAct" className="flex items-center tracking-widest text-gray-500">TOTAL SALES</label>
+                      <label htmlFor="HeadlineAct" className="flex items-center tracking-widest text-gray-500">TOTAL SALES</label>
                       <select
                         title="Filter total sales"
                         name="HeadlineAct"
