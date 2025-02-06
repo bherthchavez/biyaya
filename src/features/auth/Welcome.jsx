@@ -392,9 +392,9 @@ const Welcome = () => {
     const { entities: ordersEntities } = ordersData;
     const { entities: itemsEntities } = itemsData;
 
-       // Function to clean the dateTime string
-       const cleanDateTime = (dateTime) => {
-        return dateTime.replace(' at ', ', ');
+    // Function to clean the dateTime string
+    const cleanDateTime = (dateTime) => {
+      return dateTime.replace(' at ', ', ');
     };
 
     // Sort items by status
@@ -552,9 +552,11 @@ const Welcome = () => {
                   <div className="flex flex-col mt-4 mx-4 mb-1">
                     <div className="flex justify-between text-[11px] font-semibold ">
 
-                      <div className="flex items-center tracking-widest text-gray-500">TOTAL SALES</div>
+                      <label  htmlFor="HeadlineAct" className="flex items-center tracking-widest text-gray-500">TOTAL SALES</label>
                       <select
                         title="Filter total sales"
+                        name="HeadlineAct"
+                        id="HeadlineAct"
                         className="text-gray-600 tracking-wide border border-gray-200 outline-none p-1 rounded hover:bg-slate-100 cursor-pointer" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
                         <option value="thisMonth">This Month</option>
                         <option value="yesterday">Yesterday</option>
