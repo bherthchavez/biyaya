@@ -152,11 +152,11 @@ const DashHeader = ({ headerName }) => {
 
 
   if (isLoadingLogs || isLoadingActivities) return (
-    <div className={`bg-white dark:bg-slate-900 sm:px-8 border flex  h-20 sm:h-32 items-center justify-between px-4 right-0`}>
+    <div className={`bg-white sm:px-8 border border-gray-200 flex  h-20 sm:h-32 items-center justify-between px-4 right-0`}>
       <div className="flex items-center">
         <p className="flex">
           <span className="sr-only">Logo</span>
-          <span className="inline-block text-gray-700 dark:text-gray-200 text-2xl sm:text-3xl font-semibold">
+          <span className="inline-block text-gray-700 text-2xl sm:text-3xl font-semibold">
             {getHeaderName()}
           </span>
         </p>
@@ -165,11 +165,11 @@ const DashHeader = ({ headerName }) => {
       <div className="flex items-center justify-end">
         <nav aria-label="Site Nav" className="hidden lg:flex lg:gap-4  lg:text-gray-300" />
         <div className="flex justify-between items-center gap-2">
-          <div className="flex items-center divide-x divide-gray-100 border-gray-200 dark:border-l-gray-900 dark:border-r-gray-900">
+          <div className="flex items-center divide-x divide-gray-100 border-gray-200">
 
             <div className="flex gap-4">
 
-              <div className="inline-flex bg-white dark:bg-slate-900 rounded-full" ref={menuRef}>
+              <div className="inline-flex bg-white rounded-full" ref={menuRef}>
 
                 <div className="relative">
                   <button
@@ -182,10 +182,10 @@ const DashHeader = ({ headerName }) => {
                     <img
                       alt="Profile"
                       src={avatar}
-                      className="h-12 w-12 sm:h-13 sm:w-13 rounded-full object-cover border border-slate-300 dark:border-slate-600"
+                      className="h-12 w-12 sm:h-13 sm:w-13 rounded-full object-cover border border-slate-300"
                     />
                     <div className="ml-1 sm:mr-2 hidden sm:flex flex-col tracking-wide text-left">
-                      <h1 className="font-medium text-xs sm:text-md text-gray-800 dark:text-gray-200 capitalize">
+                      <h1 className="font-medium text-xs sm:text-md text-gray-800 capitalize">
                         {name}
                       </h1>
                       <p className="text-gray-400 font-light text-[10px] sm:text-sm">{position}</p>
@@ -206,13 +206,13 @@ const DashHeader = ({ headerName }) => {
                     )}
                   </button>
                   {isAdmin && userNav && (
-                    <div className="absolute right-0 z-50 origin-top-right bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 mt-2 w-48 rounded-md shadow-lg">
+                    <div className="absolute right-0 z-50 origin-top-right bg-white border border-gray-200 mt-2 w-48 rounded-md shadow-lg">
                       <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l rotate-45 absolute right-3"></div>
 
                       <div className="py-2">
                         <span
                           onClick={handleSettingsClick}
-                          className="cursor-pointer block px-4 py-2 text-sm text-gray-700 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-gray-400"
+                          className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         >
                           Account Setting
                         </span>
@@ -249,11 +249,11 @@ const DashHeader = ({ headerName }) => {
       <>
         <ReceiptModal isOpen={isModalOpen} onClose={handleModalClose} orderId={orderId} />
 
-        <div className={`bg-white dark:bg-slate-900 no-print sm:px-8 border flex z-30 sticky top-0 w-full ease-in-out duration-300 h-20 lg:h-32 items-center justify-between px-4 `}>
+        <div className={`bg-white  no-print sm:px-8 border  border-gray-200 flex z-30 sticky top-0 w-full ease-in-out duration-300 h-20 lg:h-32 items-center justify-between px-4 `}>
           <div className="flex items-center">
             <p className="flex">
               <span className="sr-only">Logo</span>
-              <span className="inline-block text-gray-700 dark:text-gray-200 text-2xl lg:text-3xl font-semibold">
+              <span className="inline-block text-gray-700 text-2xl lg:text-3xl font-semibold">
                 {getHeaderName()}
               </span>
             </p>
@@ -273,7 +273,7 @@ const DashHeader = ({ headerName }) => {
                 </label>
                 <button
                   type="button"
-                  className="absolute top-1/2 left-1 -translate-y-1/2 rounded-full  dark:bg-slate-900 p-2 text-gray-400 transition hover:text-gray-700"
+                  className="absolute top-1/2 left-1 -translate-y-1/2 rounded-full   p-2 text-gray-400 transition hover:text-gray-700"
                 >
                   <span className="sr-only">Submit Search</span>
                   <svg
@@ -292,7 +292,7 @@ const DashHeader = ({ headerName }) => {
                   </svg>
                 </button>
                 <input
-                  className="h-10 w-full outline-none border border-gray-300 dark:text-gray-300 rounded-full border-none bg-gray-100 dark:bg-slate-800 pl-11 pr-2 text-sm shadow-sm sm:w-56"
+                  className="h-10 w-full outline-none border border-gray-300  rounded-full border-none bg-gray-100 pl-11 pr-2 text-sm shadow-sm sm:w-56"
                   id="search"
                   type="search"
                   placeholder="Search..."
@@ -327,7 +327,7 @@ const DashHeader = ({ headerName }) => {
                 <div
                   onClick={() => setNotif(prev => !prev)}
 
-                  className="flex cursor-pointer items-center relative rounded-lg border border-gray-100 dark:bg-slate-800 p-2 text-gray-800 dark:text-gray-300 hover:text-gray-700"
+                  className="flex cursor-pointer items-center relative rounded-lg border border-gray-100 p-2 text-gray-800  hover:text-gray-700"
                 >
                   <span className="sr-only">Notifications</span>
                   {hasSeen &&
@@ -343,31 +343,31 @@ const DashHeader = ({ headerName }) => {
                   </span>
                 </div>
                 {notif &&
-                  <div ref={notifRef} className="absolute right-[-60px] sm:right-0 z-50 origin-top-right bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 mt-2 w-auto rounded-md shadow-lg">
+                  <div ref={notifRef} className="absolute right-[-60px] sm:right-0 z-50 origin-top-right bg-white border border-gray-200 mt-2 w-auto rounded-md shadow-lg">
                     <div className="pt-3 px-4  flex ">
                       <div onClick={() => setLogTab(prev => prev = "activity")}
-                        className={`${logTab === `activity` ? `bg-white border-t border-l border-r` : `bg-gray-100 border hover:bg-gray-50`} px-5 py-2 rounded-t-xl cursor-pointer`}>
+                        className={`${logTab === `activity` ? `bg-white border-t border-l border-r border-gray-200` : `bg-gray-100 border border-gray-200 hover:bg-gray-50`} px-5 py-2 rounded-t-xl cursor-pointer`}>
                         Activity
                       </div>
                       {isAdmin &&
                         <div onClick={() => setLogTab(prev => prev = "lastViewed")}
-                          className={`${logTab === `lastViewed` ? `bg-white border-t border-l border-r` : `bg-gray-100 border hover:bg-gray-50`} px-5 py-2  rounded-t-xl cursor-pointer`}>
+                          className={`${logTab === `lastViewed` ? `bg-white border-t border-l border-r border-gray-200` : `bg-gray-100 border border-gray-200 hover:bg-gray-50`} px-5 py-2  rounded-t-xl cursor-pointer`}>
                           Last viewed
                         </div>
                       }
                     </div>
-                    <div className="block -top-[7px] bg-white h-3 w-3 border-t border-l rotate-45 absolute right-[71px] sm:right-3 "></div>
+                    <div className="block -top-[7px] bg-white h-3 w-3 border-t border-l border-gray-200 rotate-45 absolute right-[71px] sm:right-3 "></div>
 
-                    <div className="w-[20rem]  sm:w-[25rem] z-50 border rounded-b-md">
+                    <div className="w-[20rem]  sm:w-[25rem] z-50 border border-gray-200 rounded-b-md">
                       {renderLogComponent}
                     </div>
                   </div>
                 }
               </div>
-              <div className="flex items-center  rounded-full   divide-x divide-gray-100 dark:border-l-gray-900 dark:border-r-gray-900">
+              <div className="flex items-center  rounded-full   divide-x divide-gray-100 ">
                 <div className="flex gap-4">
 
-                  <div className="inline-flex bg-white dark:bg-slate-900 rounded-full"
+                  <div className="inline-flex bg-white  rounded-full"
                     ref={menuRef}>
 
                     <div className="relative">
@@ -381,10 +381,10 @@ const DashHeader = ({ headerName }) => {
                         <img
                           alt="Profile"
                           src={avatar}
-                          className="h-12 w-12 sm:h-13 sm:w-13 rounded-full object-cover border border-slate-300 dark:border-slate-600"
+                          className="h-12 w-12 sm:h-13 sm:w-13 rounded-full object-cover border border-slate-300 "
                         />
                         <div className="ml-1 sm:mr-2 hidden sm:flex flex-col tracking-wide text-left">
-                          <h1 className="font-medium text-xs sm:text-md text-gray-800 dark:text-gray-200 capitalize">
+                          <h1 className="font-medium text-xs sm:text-md text-gray-800 capitalize">
                             {name}
                           </h1>
                           <p className="text-gray-400 font-light text-[10px] sm:text-sm">{position}</p>
@@ -405,13 +405,13 @@ const DashHeader = ({ headerName }) => {
                         )}
                       </button>
                       {isAdmin && userNav && (
-                        <div className="absolute right-0 z-50 origin-top-right bg-white dark:bg-slate-800 border border-gray-200 dark:border-gray-700 mt-2 w-48 rounded-md shadow-lg">
-                          <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l rotate-45 absolute right-3"></div>
+                        <div className="absolute right-0 z-50 origin-top-right bg-white border border-gray-200 mt-2 w-48 rounded-md shadow-lg">
+                          <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l border-gray-200 rotate-45 absolute right-3"></div>
 
                           <div className="py-2">
                             <span
                               onClick={handleSettingsClick}
-                              className="cursor-pointer block px-4 py-2 text-sm text-gray-700 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-gray-900 dark:hover:text-gray-400"
+                              className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                             >
                               Account Setting
                             </span>

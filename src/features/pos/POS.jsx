@@ -63,7 +63,7 @@ const POS = () => {
                 <div aria-label="Page Header" className='mb-20 no-print'>
                     <aside
                         onClick={() => setToggleCart(true)}
-                        className={`fixed bottom-5 end-5 hover:p-7 ease-in-out duration-300  z-30 flex items-center justify-center  rounded-full bg-white p-5  cursor-pointer border shadow-2xl`}
+                        className={`fixed bottom-5 end-5 hover:p-7 ease-in-out duration-300  z-30 flex items-center justify-center  rounded-full bg-white p-5  cursor-pointer border border-gray-200 shadow-2xl`}
                     >
                         <div className='relative text-black '>
                             {orderTransac?.items?.length !== 0 &&
@@ -79,10 +79,10 @@ const POS = () => {
 
                     </aside>
 
-                    <div className='z-20 sticky  top-[79px] lg:top-32  bg-white sm:bg-[#f1f1f1] border-b'>
+                    <div className='z-20 sticky  top-[79px] lg:top-32  bg-white sm:bg-[#f1f1f1] border-b border-gray-200'>
                         <div className='flex flex-col px-6 lg:px-12 pt-5 pb-2'>
                             <div className='flex justify-between gap-2 items-center'>
-                                <h1 className="text-md font-medium  text-gray-700 md:text-xl lg:text-2xl dark:text-gray-200">
+                                <h1 className="text-xl sm:text-2xl font-medium  text-gray-700 ">
                                     {search ? search : 'All'} Menu
                                 </h1>
                                 <div className="relative block">
@@ -92,7 +92,7 @@ const POS = () => {
                                     </label>
                                     <button
                                         type="button"
-                                        className="absolute top-1/2 left-1 -translate-y-1/2 rounded-full  dark:bg-slate-900 p-2 text-gray-400 transition hover:text-gray-700"
+                                        className="absolute top-1/2 left-1 -translate-y-1/2 rounded-full p-2 text-gray-400 transition hover:text-gray-700"
                                     >
                                         <span className="sr-only">Submit Search</span>
                                         <svg
@@ -111,7 +111,7 @@ const POS = () => {
                                         </svg>
                                     </button>
                                     <input
-                                        className="h-10 w-32 border border-gray-100 dark:text-gray-300 rounded-full bg-[#f1f1f1]  sm:bg-white dark:bg-slate-800 pl-11 pr-2 text-sm md:w-48 lg:w-56"
+                                        className="h-10 w-32 border border-gray-100 rounded-full bg-[#f1f1f1]  sm:bg-white pl-11 pr-2 text-sm md:w-48 lg:w-56"
                                         id="search"
                                         type="search"
                                         placeholder="Search..."
@@ -129,7 +129,7 @@ const POS = () => {
                                             key={idx}
                                             title={category}
                                             onClick={() => onCategorySearch(category)}
-                                            className={`${search === category ? 'bg-[#242424] text-white active:bg-black' : 'active:bg-white text-black hover:shadow'} flex justify-center items-center px-6 sm:px-8 py-2 cursor-pointer  border  border-gray-300 rounded-full`} >
+                                            className={`${search === category ? 'bg-[#242424] text-white active:bg-black' : 'active:bg-white text-black hover:shadow'} flex justify-center items-center px-6 sm:px-8 py-2 cursor-pointer  border border-gray-300 rounded-full`} >
                                             {category}
                                         </div>
                                     ))}

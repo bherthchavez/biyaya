@@ -269,13 +269,13 @@ export const Cart = () => {
                         <button
                             title="Dine in"
                             onClick={() => setOrderTransac({ ...orderTransac, orderType: 'Dine in' })}
-                            className={`${orderTransac.orderType == 'Dine in' ? 'bg-[#242424] text-white' : 'text-black'} flex px-5 hover:shadow py-2 border dark:text-slate-600 border-gray-300 dark:border-slate-700  dark:bg-gray-800 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`} >
+                            className={`${orderTransac.orderType == 'Dine in' ? 'bg-[#242424] text-white' : 'text-black'} flex px-5 hover:shadow py-2 border border-gray-300 rounded-full`} >
                             Dine in {orderTransac?.items.length !== 0 && orderTransac.orderType == 'Dine in' && `(${totalQty})`}
                         </button>
                         <button
                             title="Dine in"
                             onClick={() => setOrderTransac({ ...orderTransac, orderType: 'Take out' })}
-                            className={`${orderTransac.orderType === 'Take out' ? 'bg-[#242424] text-white' : 'text-black'} flex px-5 hover:shadow py-2 border dark:text-slate-600 border-gray-300 dark:border-slate-700  dark:bg-gray-800 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`} >
+                            className={`${orderTransac.orderType === 'Take out' ? 'bg-[#242424] text-white' : 'text-black'} flex px-5 hover:shadow py-2 border border-gray-300 rounded-full`} >
                             Take out {orderTransac?.items.length !== 0 && orderTransac.orderType == 'Take out' && `(${totalQty})`}
                         </button>
                     </div>
@@ -285,7 +285,7 @@ export const Cart = () => {
                 <div className="h-2/3 overflow-x-auto bg-gray-50 px-4 rounded-md">
                     {orderTransac.items.length
                         ? orderTransac.items.map((item, idx) => (
-                            <div key={idx} className="flex gap-3  border-b dark:bg-slate-800 py-5 border-gray-300 dark:border-gray-800 text-center text-gray-800 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400">
+                            <div key={idx} className="flex gap-3  border-b py-5 border-gray-300 text-center text-gray-800 hover:text-gray-500">
                                 <div className="text-4xl  font-bold  md:text-5xl   flex flex-col gap-2">
                                     <div className='h-20 w-16 object-cover bg-gray-600 rounded-2xl'>
                                         <img
@@ -294,11 +294,11 @@ export const Cart = () => {
                                                 ? item.avatar
                                                 : iconItem
                                             }
-                                            className="h-20 w-16 rounded-2xl opacity-60 dark:border-slate-600 object-cover"
+                                            className="h-20 w-16 rounded-2xl opacity-60 object-cover"
                                         />
                                     </div>
                                 </div>
-                                <div className="w-full px-2 text-sm flex flex-col gap-2 items-start justify-start text-gray-500 dark:text-gray-400">
+                                <div className="w-full px-2 text-sm flex flex-col gap-2 items-start justify-start text-gray-500">
                                     <div className='text-gray-800 text-base text-left'>
                                         <h1 className='font-semibold'>{item.name}
                                         </h1>
@@ -362,7 +362,7 @@ export const Cart = () => {
                                 <div className="flex items-center justify-between text-xl lg:text-2xl font-medium">
                                     <h1 className="text-gray-500">Cash</h1>
                                     <input
-                                        className={`w-2/3 mt-1 px-3 py-1 text-right font-semibold text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-300 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
+                                        className={`w-2/3 mt-1 px-3 py-1 text-right font-semibold text-gray-900 border border-gray-300 outline-none focus:border-gray-300 focus:shadow-sm rounded-md`}
                                         id="cash"
                                         name="cash"
                                         type="number"
@@ -380,7 +380,7 @@ export const Cart = () => {
                                     onClick={saveOrder}
                                     title="Save Order"
                                     disabled={enableSaveOrder}
-                                    className={`${enableSaveOrder ? 'bg-green-900 hover:bg-green-700 ' : 'bg-gray-300'}  cursor-pointer flex font-medium text-lg lg:text-xl justify-center  text-gray-100 w-full py-2 lg:py-3 border dark:text-slate-600 border-gray-300 dark:border-slate-700  dark:bg-gray-800 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`} >
+                                    className={`${enableSaveOrder ? 'bg-green-900 hover:bg-green-700 ' : 'bg-gray-300'}  cursor-pointer flex font-medium text-lg lg:text-xl justify-center  text-gray-100 w-full py-2 lg:py-3 border border-gray-300 rounded-full`} >
 
                                     {isLoading
                                         ?
@@ -399,7 +399,7 @@ export const Cart = () => {
                                 <div
                                     onClick={computeTotal}
                                     title="Place an order"
-                                    className={`${orderTransac.items.length ? `bg-gray-900 hover:bg-black text-white ` : `bg-gray-300 text-white`} cursor-pointer flex  font-medium text-lg lg:text-xl justify-center w-full py-2 lg:py-3 border dark:text-slate-600 border-gray-300 dark:border-slate-700  dark:bg-gray-800 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`} >
+                                    className={`${orderTransac.items.length ? `bg-gray-900 hover:bg-black text-white ` : `bg-gray-300 text-white`} cursor-pointer flex  font-medium text-lg lg:text-xl justify-center w-full py-2 lg:py-3 border border-gray-300 rounded-full`} >
                                     Place an order
                                 </div>
 

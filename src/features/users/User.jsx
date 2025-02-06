@@ -24,16 +24,16 @@ const User = ({ userId, search }) => {
 
       return (
 
-        <div title='Edit user' className="hover:shadow-lg gap-3   flex flex-col justify-between bg-white dark:bg-slate-800 rounded-lg shadow-sm border-gray-200 dark:border-gray-800  text-center text-gray-800 dark:text-gray-200 hover:text-gray-500 dark:hover:text-gray-400">
+        <div title='Edit user' className="hover:shadow-lg gap-3   flex flex-col justify-between bg-white rounded-lg shadow-sm border-gray-200 text-center text-gray-800 hover:text-gray-500">
           <div className="text-4xl font-bold md:text-5xl flex flex-col pt-5 sm:py-5">
-            <div className='mx-auto h-20 w-20 lg:h-28 lg:w-2/5 border rounded-full '>
+            <div className='mx-auto h-20 w-20 lg:h-28 lg:w-2/5 border border-gray-200 rounded-full '>
               <img
                 alt={user.name}
                 src={user.avatar || iconItem}
                 className="h-full w-full rounded-full object-cover"
               />
             </div>
-            <div className="w-full text-sm font-normal mt-3 gap-4 flex flex-col items-start justify-between text-gray-500 dark:text-gray-400">
+            <div className="w-full text-sm font-normal mt-3 gap-4 flex flex-col items-start justify-between text-gray-500">
               <div className='mx-auto  flex flex-col gap-2 text-black text-base sm:text-lg text-center'>
                 <h1 className=''>{user.name}</h1>
                 <p className='text-gray-500 text-sm'>{user.position}</p>

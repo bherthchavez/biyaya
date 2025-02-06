@@ -212,12 +212,12 @@ const Reports = () => {
                             <div className="flex sm:flex-row p-5 justify-between gap-2">
                                 <div className="flex flex-col sm:flex-row gap-2">
 
-                                    <p className="text-lg font-bold text-gray-700 sm:text-2xl dark:text-gray-200">
+                                    <p className="text-lg font-bold text-gray-700 sm:text-2xl">
                                         Sales Summary
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-2">
                                         <select
-                                            className="border rounded p-1 cursor-pointer hover:bg-slate-100 text-sm"
+                                            className="border outline-none border-gray-200 rounded p-1 cursor-pointer hover:bg-slate-100 text-sm"
                                             value={yearFilter}
                                             onChange={(e) => setYearFilter(e.target.value)}
                                         >
@@ -230,7 +230,7 @@ const Reports = () => {
                                         </select>
                                         {yearFilter !== "all" && yearFilter !== currentYear.toString() ? (
                                             <select
-                                                className="border rounded p-1 cursor-pointer hover:bg-slate-100 text-sm"
+                                                className="border border-gray-200 rounded p-1 cursor-pointer hover:bg-slate-100 text-sm"
                                                 value={monthFilter}
                                                 onChange={(e) => setMonthFilter(e.target.value)}
                                             >
@@ -243,7 +243,7 @@ const Reports = () => {
                                             </select>
                                         ) :yearFilter !== "all" ? (
                                             <select
-                                                className="border rounded p-1 cursor-pointer hover:bg-slate-100 text-sm"
+                                                className="border outline-none border-gray-200  rounded p-1 cursor-pointer hover:bg-slate-100 text-sm"
                                                 value={dateFilter}
                                                 onChange={(e) => setDateFilter(e.target.value)}
                                             >
@@ -281,7 +281,7 @@ const Reports = () => {
                                     <div
                                         onClick={exportToExcel}
                                         title="Export"
-                                        className=" cursor-pointer text-sm px-2 sm:px-4 py-2 text-black border dark:text-gray-300 font-medium border-gray-300 dark:border-slate-600 hover:bg-gray-200 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-md duration-150"
+                                        className=" cursor-pointer text-sm px-2 sm:px-4 py-2 text-black border font-medium border-gray-300 hover:bg-gray-200 rounded-md duration-150"
                                     >
                                         Export
                                     </div>
@@ -326,7 +326,7 @@ const Reports = () => {
                                         />
                                         <Tooltip
                                             content={({ payload }) => (
-                                                <div className="flex flex-col gap-2 bg-slate-800 border text-xs font-medium py-3 px-5 rounded-md shadow-lg">
+                                                <div className="flex flex-col gap-2 bg-slate-800 text-xs font-medium py-3 px-5 rounded-md shadow-lg">
                                                     {payload?.map((item, idx) => (
                                                         <div key={idx}>
                                                             <div className="flex gap-1 items-center">

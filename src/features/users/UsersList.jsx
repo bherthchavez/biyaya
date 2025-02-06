@@ -53,13 +53,13 @@ const UsersList = () => {
         <div className="mx-auto  max-w-screen-xl  px-4 py-8 sm:px-6 lg:px-8 no-print">
           <div className="sm:flex justify-between">
             <div className="flex justify-between items-center">
-              <h1 className="text-xl font-semibold  text-gray-500  dark:text-gray-400">
+              <h1 className="text-xl font-semibold  text-gray-500 ">
                 Manage User
               </h1>
               <span
                 onClick={() => navigate("/settings/new")}
                 title='Add Item'
-                className="flex text-xs gap-2 sm:hidden items-center cursor-pointer  px-8 py-3 text-black border dark:text-gray-300 font-medium border-gray-300 dark:border-slate-600  hover:bg-gray-200 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full duration-150"
+                className="flex text-xs gap-2 sm:hidden items-center cursor-pointer  px-8 py-3 text-black border font-medium border-gray-300  hover:bg-gray-200 rounded-full duration-150"
               >
                 <AiOutlineUserAdd size={20} />
               </span>
@@ -73,7 +73,7 @@ const UsersList = () => {
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none shrink-0">
                     <svg
-                      className="w-4 h-4  text-gray-500 dark:text-gray-400"
+                      className="w-4 h-4  text-gray-500"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -90,7 +90,7 @@ const UsersList = () => {
                   <input
                     type="text"
                     id="table-search"
-                    className="w-full pl-10 p-2 block py-4 px-6 text-sm font-normal bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700 outline-none focus:border-gray-300  focus:shadow-sm rounded-xl"
+                    className="w-full pl-10 p-2 block py-4 px-6 text-sm font-normal bg-white text-gray-900 border border-gray-200 outline-none focus:border-gray-300  focus:shadow-sm rounded-xl"
                     placeholder="Search..."
                     value={search}
                     onChange={(e) => handleSearch(e.target.value)}
@@ -102,7 +102,7 @@ const UsersList = () => {
                 <span
                   onClick={() => navigate("/settings/new")}
                   title='Add New Item'
-                  className="hidden sm:flex gap-3 items-center cursor-pointer  px-8 py-3 text-black border dark:text-gray-300 font-medium border-gray-300 dark:border-slate-600  hover:bg-white dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full duration-150"
+                  className="hidden sm:flex gap-3 items-center cursor-pointer  px-8 py-3 text-black border font-medium border-gray-300  hover:bg-white rounded-full duration-150"
                 >
                   <AiOutlineUserAdd size={19} />
                   Add User

@@ -245,11 +245,11 @@ const EditUserForm = ({ user }) => {
   }
 
   const validUserClass = !validUsername
-    ? "text-red-600 dark:text-red-600"
-    : "text-blue-700 dark:text-blue-400";
+    ? "text-red-600"
+    : "text-blue-700";
   const validPwdClass = !validPassword
-    ? "text-red-600 dark:text-red-600"
-    : "text-blue-700 dark:text-blue-400";
+    ? "text-red-600"
+    : "text-blue-700";
 
   async function readImage(e, func) {
     const file = e.target.files[0];
@@ -269,23 +269,23 @@ const EditUserForm = ({ user }) => {
   const content = (
     <>
       <Modal isOpen={isModalOpen} onClose={handleModalClose} onOk={onDeleteUserClicked}>
-        <div className="bg-white dark:bg-gray-700 p-4">
-          <h2 className="text-lg font-bold mb-4 text-gray-800 dark:text-gray-300"><AiOutlineWarning size={50} className="m-auto text-red-600" /></h2>
-          <h2 className="text-lg font-bold mb-4 text-gray-800 dark:text-gray-300">{name}</h2>
-          <p className=" text-gray-800 dark:text-gray-400">Do you really want to delete this User?</p>
+        <div className="bg-white  p-4">
+          <h2 className="text-lg font-bold mb-4 text-gray-800"><AiOutlineWarning size={50} className="m-auto text-red-600" /></h2>
+          <h2 className="text-lg font-bold mb-4 text-gray-800">{name}</h2>
+          <p className=" text-gray-800">Do you really want to delete this User?</p>
         </div>
       </Modal>
 
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 ">
-        <h1 className="mb-2 text-xl font-semibold text-gray-500 sm:text-2xl dark:text-gray-200 ">
+        <h1 className="mb-2 text-xl font-semibold text-gray-500 sm:text-2xl ">
           {id === user._id ? 'Account Setting' : 'Edit User'}
         </h1>
-        <p className="text-red-700 sm:text-xl dark:text-gray-200">{error?.data?.message}</p>
+        <p className="text-red-700 sm:text-xl">{error?.data?.message}</p>
 
         <div className="mt-5 md:col-span-2 ">
           <form onSubmit={(e) => e.preventDefault()}>
-            <div className="border overflow-hidden rounded-md">
-              <div className="space-y-6 bg-white dark:bg-slate-800 px-4 py-5 sm:p-10">
+            <div className="border border-gray-200 overflow-hidden rounded-md">
+              <div className="space-y-6 bg-white px-4 py-5 sm:p-10">
                 <div className="grid grid-cols-2 gap-20">
                   <div className="col-span-2 sm:col-span-1 ">
 
@@ -293,7 +293,7 @@ const EditUserForm = ({ user }) => {
 
                       <div className="mt-1 flex flex-col gap-4 sm:gap-0 sm:flex-row items-center">
                         <div className="flex flex-col items-center gap-1">
-                          <label className="block text-base text-center sm:text-left  text-gray-500 dark:text-gray-200">
+                          <label className="block text-base text-center sm:text-left  text-gray-500">
                             User  Photo
                           </label>
                           {imageView ? (
@@ -307,7 +307,7 @@ const EditUserForm = ({ user }) => {
                               <img
                                 alt="Man"
                                 src={user.avatar}
-                                className="h-40 w-40 rounded-full object-cover border border-slate-300  dark:border-slate-600"
+                                className="h-40 w-40 rounded-full object-cover border border-slate-300 "
                               />
                             </span>
                           )}
@@ -315,7 +315,7 @@ const EditUserForm = ({ user }) => {
 
                         <label
                           htmlFor="file-upload"
-                          className="sm:ml-5 cursor-pointer text-[10px]  px-4 py-2 text-black border dark:text-gray-300 font-medium border-gray-300 dark:border-slate-600  dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full"
+                          className="sm:ml-5 cursor-pointer text-[10px]  px-4 py-2 text-black border font-medium border-gray-300   hover:bg-gray-200   rounded-full"
                         >
                           <span className="whitespace-nowrap">Replace Photo</span>
 
@@ -338,13 +338,13 @@ const EditUserForm = ({ user }) => {
                     </div>
                     <div className="mt-10">
                       <label
-                        className="block text-base  text-gray-500 dark:text-gray-200"
+                        className="block text-base  text-gray-500"
                         htmlFor="name"
                       >
                         Name
                       </label>
                       <input
-                        className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
+                        className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900  border  border-gray-200      outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
                         id="name"
                         name="name"
                         type="text"
@@ -358,13 +358,13 @@ const EditUserForm = ({ user }) => {
 
                       <div>
                         <label
-                          className="block text-base text-gray-500 dark:text-gray-200"
+                          className="block text-base text-gray-500"
                           htmlFor="position"
                         >
                           Position
                         </label>
                         <input
-                          className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
+                          className={`w-full mt-1 px-3 py-3 text-base font-normal text-gray-900  border  border-gray-200      outline-none focus:border-gray-300  focus:shadow-sm rounded-md`}
                           id="position"
                           name="position"
                           type="text"
@@ -378,7 +378,7 @@ const EditUserForm = ({ user }) => {
                       <div className="">
                         <label
                           htmlFor="country"
-                          className="block text-base text-gray-500 dark:text-gray-200"
+                          className="block text-base text-gray-500"
                         >
                           Roles
                         </label>
@@ -387,7 +387,7 @@ const EditUserForm = ({ user }) => {
                           name="roles"
                           value={roles}
                           onChange={(e) => setRoles(e.target.value)}
-                          className="mt-1 block w-full py-2 px-2 text-base font-normal text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md"
+                          className="mt-1 block w-full py-2 px-2 text-base font-normal text-gray-900  border  border-gray-200      outline-none focus:border-gray-300  focus:shadow-sm rounded-md"
                         >
                           {options}
                         </select>
@@ -401,16 +401,16 @@ const EditUserForm = ({ user }) => {
                     <div className="">
                       <label
                         htmlFor="username"
-                        className="block text-base text-gray-500 dark:text-gray-200"
+                        className="block text-base text-gray-500"
                       >
                         Username{" "}
-                        <span className="nowrap text-[11px] text-red-600 dark:text-red-400">
+                        <span className="nowrap text-[11px] text-red-600 ">
                           {!validUsername ? "3-20 letters" : ""}
                         </span>
                       </label>
 
                       <input
-                        className={` w-full sm:w-1/2 mt-1 px-3 py-3 text-base font-normal  border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validUserClass}`}
+                        className={` w-full sm:w-1/2 mt-1 px-3 py-3 text-base font-normal  border  border-gray-200      outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validUserClass}`}
                         id="username"
                         name="username"
                         type="text"
@@ -422,11 +422,11 @@ const EditUserForm = ({ user }) => {
 
                     <div className="mt-3">
                       <label
-                        className="mt-2 block text-base text-gray-500 dark:text-gray-200"
+                        className="mt-2 block text-base text-gray-500"
                         htmlFor="password"
                       >
                         Password{" "}
-                        <span className="nowrap text-xs text-red-600 dark:text-red-400">
+                        <span className="nowrap text-xs text-red-600 ">
                           {!validPassword
                             ? "[empty = no change] 4-12 characters including !@#$%"
                             : ""}
@@ -441,7 +441,7 @@ const EditUserForm = ({ user }) => {
                             onClick={togglePasswordVisiblity}
                           />
                           <label
-                            className=" bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800 rounded-xl px-2 py-1 mt-1 text-lg text-gray-600 font-mono cursor-pointer js-password-label"
+                            className=" bg-white hover:bg-slate-100  rounded-xl px-2 py-1 mt-1 text-lg text-gray-600 font-mono cursor-pointer js-password-label"
                             htmlFor="toggle"
                           >
                             {passwordShown ? (
@@ -452,7 +452,7 @@ const EditUserForm = ({ user }) => {
                           </label>
                         </div>
                         <input
-                          className={`leading-tight w-full mt-1 px-3 py-3 text-base font-normal border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700  dark:bg-slate-900 outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validPwdClass}`}
+                          className={`leading-tight w-full mt-1 px-3 py-3 text-base font-normal border  border-gray-200      outline-none focus:border-gray-300  focus:shadow-sm rounded-md ${validPwdClass}`}
                           id="password"
                           name="password"
                           type={passwordShown ? "text" : "password"}
@@ -482,13 +482,13 @@ const EditUserForm = ({ user }) => {
               </div>
 
               {/*footer big screen  */}
-              <div className={`hidden sm:flex  justify-end text-sm bg-gray-50 dark:bg-slate-800 px-4 py-3 text-right sm:px-6 dark:border-t dark:border-slate-700 ${btnClass}`}>
+              <div className={`hidden sm:flex  justify-between text-sm bg-gray-50 px-4 py-3 text-right sm:px-6 ${btnClass}`}>
                 {id !== user._id
                   && <span
                     className={
                       !isLoading || isDelLoading
-                        ? `cursor-pointer flex  px-3 sm:px-6 py-3 text-red-700 border dark:text-red-500 border-red-300 dark:border-red-800  hover:bg-gray-200 dark:hover:bg-gray-900 dark:active:bg-slate-800 rounded-full`
-                        : "flex  px-3 sm:px-6 py-3 text-white border dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full"
+                        ? `cursor-pointer flex  px-3 sm:px-6 py-3 text-red-700 border border-red-300  hover:bg-gray-200  rounded-full`
+                        : "flex  px-3 sm:px-6 py-3 text-white border border-gray-200 bg-gray-400 hover:bg-gray-400   rounded-full"
                     }
                     title="Delete User"
                     disabled={!isLoading || !isDelLoading}
@@ -507,8 +507,8 @@ const EditUserForm = ({ user }) => {
                       onClick={() => !isLoading && !isDelLoading ? navigate("/settings") : undefined}
                       className={
                         !isLoading && !isDelLoading
-                          ? `cursor-pointer flex px-6 py-3 text-black border dark:text-gray-300 border-gray-300 dark:border-slate-600  dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`
-                          : `flex px-6 py-3 text-white border dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`
+                          ? `cursor-pointer flex px-6 py-3 text-black border border-gray-300   hover:bg-gray-200   rounded-full`
+                          : `flex px-6 py-3 text-white border border-gray-200 bg-gray-400 hover:bg-gray-400   rounded-full`
                       } >
                       <BsArrowLeftShort size={20} className='mr-1 sm:mr-2' />
                       Cancel
@@ -521,8 +521,8 @@ const EditUserForm = ({ user }) => {
                     onClick={canSave && !isDelLoading ? onSaveUserClicked : undefined}
                     className={
                       canSave && !isDelLoading
-                        ? `cursor-pointer flex px-3 sm:px-6 py-3 text-white border dark:text-gray-300 border-gray-200 dark:border-slate-600 bg-black dark:bg-gray-700 hover:bg-gray-700 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`
-                        : `flex px-3 sm:px-6 py-3 text-white border dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full`
+                        ? `cursor-pointer flex px-3 sm:px-6 py-3 text-white border border-gray-200 bg-black  hover:bg-gray-700   rounded-full`
+                        : `flex px-3 sm:px-6 py-3 text-white border border-gray-200 bg-gray-400 hover:bg-gray-400   rounded-full`
                     }
                   >
                     <AiOutlineSave size={20} className="mr-1 sm:mr-2" />
@@ -532,7 +532,7 @@ const EditUserForm = ({ user }) => {
               </div>
 
               {/*footer mobile screen */}
-              <div className={`flex gap-2  flex-col sm:flex-row sm:hidden  sm:justify-end text-sm bg-gray-50 dark:bg-slate-800 px-4 py-3 text-center sm:px-6 dark:border-t dark:border-slate-700 ${btnClass}`}>
+              <div className={`flex gap-2  flex-col sm:flex-row sm:hidden  sm:justify-end text-sm bg-gray-50 px-4 py-3 text-center sm:px-6 ${btnClass}`}>
 
                 <div
                   title="Cancel"
@@ -540,9 +540,9 @@ const EditUserForm = ({ user }) => {
                   onClick={() => !isLoading && !isDelLoading ? navigate("/settings") : undefined}
                   className={
                     ` ${!isLoading && !isDelLoading
-                      ? `cursor-pointer  text-black border dark:text-gray-300 border-gray-300 dark:border-slate-600  dark:bg-gray-700 hover:bg-gray-200 `
-                      : `  text-white border dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 `
-                    } dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full flex px-6 py-3  justify-center`} >
+                      ? `cursor-pointer  text-black border border-gray-300   hover:bg-gray-200 `
+                      : `  text-white border border-gray-200 bg-gray-400 hover:bg-gray-400 `
+                    }   rounded-full flex px-6 py-3  justify-center`} >
                   <BsArrowLeftShort size={20} className='mr-1 sm:mr-2' />
                   Cancel
                 </div>
@@ -551,9 +551,9 @@ const EditUserForm = ({ user }) => {
                   title="Save"
                   onClick={!isDelLoading ? onSaveUserClicked : undefined}
                   className={`${!isDelLoading
-                    ? `cursor-pointer flex px-3 sm:px-6 py-3 text-white border dark:text-gray-300 border-gray-200 dark:border-slate-600 bg-black dark:bg-gray-700 hover:bg-gray-700 `
-                    : ` text-white border dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 `
-                    } flex items-center justify-center  px-3 sm:px-4 py-2 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full `}
+                    ? `cursor-pointer flex px-3 sm:px-6 py-3 text-white border border-gray-200 bg-black  hover:bg-gray-700 `
+                    : ` text-white border border-gray-200 bg-gray-400 hover:bg-gray-400 `
+                    } flex items-center justify-center  px-3 sm:px-4 py-2   rounded-full `}
                 >
                   <AiOutlineSave size={20} className="mr-1 sm:mr-2" />
                   Update
@@ -563,9 +563,9 @@ const EditUserForm = ({ user }) => {
                   && <span
                     className={
                       `${!isLoading || isDelLoading
-                        ? `cursor-pointer   text-red-700  dark:text-red-500 border-red-300 dark:border-red-800  hover:bg-gray-200 dark:hover:bg-gray-900  `
-                        : " text-white  dark:text-slate-600 border-gray-200 dark:border-slate-700 bg-gray-400 dark:bg-gray-800 hover:bg-gray-400 dark:hover:bg-gray-800 "
-                      }flex justify-center px-3 mt-5 sm:px-6 py-3 border rounded-full dark:active:bg-slate-800`}
+                        ? `cursor-pointer   text-red-700  border-red-300  hover:bg-gray-200  `
+                        : " text-white  border-gray-200 bg-gray-400 hover:bg-gray-400  "
+                      }flex justify-center px-3 mt-5 sm:px-6 py-3 border rounded-full `}
                     title="Delete User"
                     disabled={!isLoading || !isDelLoading}
                     onClick={handleModalOpen}
@@ -589,12 +589,12 @@ const EditUserForm = ({ user }) => {
 
 const CheckboxField = ({ label, checked, onChange }) => (
   <div className="mt-10 space-y-4">
-    <label className="block text-base text-gray-500 dark:text-gray-200">{label}</label>
+    <label className="block text-base text-gray-500">{label}</label>
     <div className="mt-4">
       <label className="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" className="sr-only peer" checked={checked} onChange={onChange} />
-        <div className="w-[33px] h-[18px] bg-red-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-green-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] sm:after:top-[5px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-green-600"></div>
-        <span className={`${checked ? 'text-green-700' : 'text-red-700'} ml-3 text-xs sm:text-base  dark:text-gray-200`}>{checked ? 'Active' : 'Inactive'}</span>
+        <div className="w-[33px] h-[18px] bg-red-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] sm:after:top-[5px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-green-600"></div>
+        <span className={`${checked ? 'text-green-700' : 'text-red-700'} ml-3 text-xs sm:text-base `}>{checked ? 'Active' : 'Inactive'}</span>
       </label>
     </div>
   </div>

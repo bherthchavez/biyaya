@@ -33,7 +33,6 @@ const OrdersList = () => {
   }
 
 
-
   const {
     data: orders,
     isLoading,
@@ -96,12 +95,13 @@ const OrdersList = () => {
 
   if (isLoading) {
     content = <PageLoader />
+
   } else if (isError) {
     content = (
       <div className="no-print mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="sm:flex justify-between">
           <div className="flex justify-between items-center">
-            <h1 className="text-xl font-semibold  text-gray-500  dark:text-gray-400">
+            <h1 className="text-xl font-semibold  text-gray-500 ">
               Order List
             </h1>
           </div>
@@ -114,7 +114,7 @@ const OrdersList = () => {
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none shrink-0">
                   <svg
-                    className="w-4 h-4  text-gray-500 dark:text-gray-400"
+                    className="w-4 h-4  text-gray-500"
                     xmlns="http://www.w3.org/2000/svg"
                     // className="h-4 w-4"
                     fill="none"
@@ -132,7 +132,7 @@ const OrdersList = () => {
                 <input
                   type="text"
                   id="table-search"
-                  className="w-full pl-10 p-2 block py-4 px-6 text-sm font-normal bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700 outline-none focus:border-gray-300  focus:shadow-sm rounded-xl"
+                  className="w-full pl-10 p-2 block py-4 px-6 text-sm font-normal bg-white text-gray-900 border border-gray-200 outline-none focus:border-gray-300  focus:shadow-sm rounded-xl"
                   placeholder="Search..."
                   value={search}
                   readOnly
@@ -146,8 +146,8 @@ const OrdersList = () => {
           <div className="h-[400px] 2xl:h-[500px] min-w-full rounded bg-white col-span-1 lg:col-span-2">
             <div className="h-5 bg-white mt-5 rounded-t-lg"></div>
             <div className="overflow-x-auto h-full bg-white min-w-full shadow-sm ">
-              <table className="min-w-full  divide-y divide-gray-200 dark:divide-gray-700 text-sm leading-normal">
-                <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0">
+              <table className="min-w-full  divide-y divide-gray-200 text-sm leading-normal">
+                <thead className="bg-gray-50 sticky top-0">
                   <tr className="sticky">
                     {columnsArray.map((column, index) => (
                       <Thead thName={column} key={index} />
@@ -155,7 +155,7 @@ const OrdersList = () => {
                   </tr>
                 </thead>
               </table>
-              <div className="flex text-sm flex-col p-5 gap-3  dark:bg-gray-900 text-red-700 dark:text-gray-400">
+              <div className="flex text-sm flex-col p-5 gap-3 text-red-700">
                 <div className="flex flex-col  m-auto ">
                   <div className="m-auto">
                     <MdErrorOutline size={30} />
@@ -170,7 +170,9 @@ const OrdersList = () => {
 
       </div>
     )
+
   } else if (isSuccess) {
+
     const { ids, entities: ordersEntities } = orders;
 
     // **Filtering Orders Based on Search**
@@ -193,9 +195,8 @@ const OrdersList = () => {
       currentPage * 7
     );
 
-    const tableContent = currentData?.length && currentData.map((orderId) => <Order key={orderId} orderId={orderId} search={search} handleModalOpen={handleModalOpen} />)
-    const checkOrders = Object.values(ordersEntities).sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
-
+    const tableContent = currentData?.length && currentData.map((orderId) => <Order key={orderId} orderId={orderId} handleModalOpen={handleModalOpen} />)
+    const checkOrders = Object.values(filteredOrders).sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
 
 
     const handlePrevPage = () => {
@@ -222,16 +223,9 @@ const OrdersList = () => {
         <div className="no-print mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
           <div className="sm:flex justify-between">
             <div className="flex justify-between items-center">
-              <h1 className="text-xl font-semibold  text-gray-500  dark:text-gray-400">
+              <h1 className="text-xl font-semibold  text-gray-500 ">
                 Order List
               </h1>
-              {/* <span
-                onClick={() => navigate("/dashboard/items/new")}
-                title='Add Item'
-                className="block sm:hidden items-center cursor-pointer  px-8 py-3 text-black border dark:text-gray-300 font-medium border-gray-300 dark:border-slate-600  hover:bg-gray-200 dark:hover:bg-gray-800 dark:active:bg-slate-800 rounded-full duration-150"
-              >
-                <AiOutlineUserAdd size={20} />
-              </span> */}
             </div>
 
             <div className="sm:flex  mt-6 sm:mt-0">
@@ -242,7 +236,7 @@ const OrdersList = () => {
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none shrink-0">
                     <svg
-                      className="w-4 h-4  text-gray-500 dark:text-gray-400"
+                      className="w-4 h-4  text-gray-500"
                       xmlns="http://www.w3.org/2000/svg"
                       // className="h-4 w-4"
                       fill="none"
@@ -260,7 +254,7 @@ const OrdersList = () => {
                   <input
                     type="text"
                     id="table-search"
-                    className="w-full pl-10 p-2 block py-4 px-6 text-sm font-normal bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 border dark:focus:border border-gray-200 dark:border-gray-800  dark:focus:border-gray-700 outline-none focus:border-gray-300  focus:shadow-sm rounded-xl"
+                    className="w-full pl-10 p-2 block py-4 px-6 text-sm font-normal bg-white text-gray-900 border border-gray-200 outline-none focus:border-gray-300  focus:shadow-sm rounded-xl"
                     placeholder="Search..."
                     value={search}
                     onChange={(e) => setsearch(e.target.value)}
@@ -273,9 +267,9 @@ const OrdersList = () => {
           <div className="grid grid-cols-1 mt-5">
             <div className="h-[400px] 2xl:h-[500px] min-w-full rounded bg-white col-span-1 lg:col-span-2">
               <div className="h-1 sm:h-5 bg-white mt-5 rounded-t-lg"></div>
-              <div className="overflow-x-auto h-full bg-white min-w-full shadow-sm ">
-                <table className="min-w-full  divide-y divide-gray-200 dark:divide-gray-700 text-sm leading-normal">
-                  <thead className="bg-gray-50 dark:bg-gray-800 ">
+              <div className="overflow-x-auto h-full bg-white min-w-full">
+                <table className="min-w-full  divide-y divide-gray-200 text-sm leading-normal">
+                  <thead className="bg-gray-50 ">
                     <tr className="sticky top-0 z-10">
                       {columnsArray.map((column, index) => (
                         <Thead thName={column} key={index} />
@@ -287,7 +281,7 @@ const OrdersList = () => {
                   }
                 </table>
                 {checkOrders.length === 0
-                  && <div className="flex text-sm flex-col p-5 gap-3  dark:bg-gray-900 text-gray-400 dark:text-gray-400">
+                  && <div className="flex text-sm flex-col p-5 gap-3 text-gray-400">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
                         <ImFilesEmpty size={30} />
@@ -297,7 +291,7 @@ const OrdersList = () => {
                   </div>
                 }
               </div>
-              <div className="flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between items-center text-sm p-4 border-t bg-gray-50 rounded-b">
+              <div className="flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between items-center text-sm p-4 border-t border-gray-200 bg-gray-50 rounded-b">
                 {/* Showing X to Y of Z entries */}
                 <div className=" text-gray-500">
                   Showing {Math.min((currentPage - 1) * 7 + 1, filteredOrders.length)} to{" "}
@@ -309,7 +303,7 @@ const OrdersList = () => {
                 <div className="flex justify-between items-center sm:gap-4">
                   {/* Previous Button */}
                   <button
-                    className={`flex  items-center px-2 py-1 mr-2 sm:mr-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === 1 ? "cursor-not-allowed opacity-50" : ""
+                    className={`flex  items-center px-2 py-1 mr-2 sm:mr-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === 1 ? "cursor-not-allowed opacity-50" : "cursor-pointer"
                       }`}
                     onClick={handlePrevPage}
                     disabled={currentPage === 1}
@@ -323,7 +317,7 @@ const OrdersList = () => {
                     {visiblePages.map((page, idx) => (
                       <button
                         key={idx}
-                        className={`px-2 py-1 rounded ${currentPage === page
+                        className={`px-2 py-1 rounded cursor-pointer ${currentPage === page
                           ? "bg-gray-700 text-white"
                           : " hover:bg-gray-200 text-gray-700 "
                           } ${page === "..." ? "cursor-default" : ""}`}
@@ -336,7 +330,7 @@ const OrdersList = () => {
 
                   {/* Next Button */}
                   <button
-                    className={`flex items-center px-2 py-1 ml-2 sm:ml-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""
+                    className={`flex items-center px-2 py-1 ml-2 sm:ml-0 bg-gray-50 hover:bg-gray-200 text-gray-500 rounded ${currentPage === totalPages ? "cursor-not-allowed opacity-50" : "cursor-pointer"
                       }`}
                     onClick={handleNextPage}
                     disabled={currentPage === totalPages}

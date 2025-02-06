@@ -67,7 +67,7 @@ const Login = () => {
   const handlePwdInput = (e) => setPassword(e.target.value);
   const handleToggle = () => setPersist((prev) => !prev);
 
-  const errClass = errMsg ? "list-disc mt-8 text-red-600 dark:text-red-300 text-xs tracking-wide" : null;
+  const errClass = errMsg ? "list-disc mt-8 text-red-600 text-xs tracking-wide" : null;
 
   let slides = [
     biyayaSmile,
@@ -123,7 +123,7 @@ const Login = () => {
               Welcome to Biyaya 🍵
             </h1>
           </div>
-          <div className="flex flex-col items-center  bg-white dark:bg-gray-900 px-10 py-8 sm:py-10 sm:px-28 ease-in-out duration-300">
+          <div className="flex flex-col items-center  bg-white px-10 py-8 sm:py-10 sm:px-28 ease-in-out duration-300">
 
             <img src={biyayaLogo} className='hidden sm:block animate-bounce shadow shadow-black  rounded-full h-[100px] xl:h-[100px] mx-auto ease-in-out duration-300' />
             <div className="flex space-x-2 mt-20 sm:mt-0">
@@ -133,7 +133,7 @@ const Login = () => {
             </div>
 
             <div className="flex items-center gap-2 mt-16">
-              <p className="text-xs font-thin text-gray-600 dark:text-gray-400">Designed and developed by: </p>
+              <p className="text-xs font-thin text-gray-600">Designed and developed by: </p>
 
               <a href='https:www.tyingknotworks.com/'
                 target='_blank' rel='noreferrer noopener'
@@ -203,11 +203,11 @@ const Login = () => {
               <form onSubmit={handleSubmit} className=" space-y-7">
                 <div className=" space-y-2 sm:text-center">
 
-                  <h3 className="text-black hidden sm:block dark:text-gray-300 text-xl font-bold tracking-widest font-sans">
+                  <h3 className="text-black hidden sm:block text-xl font-bold tracking-widest font-sans">
                     LOGIN
                   </h3>
                   <p
-                    className="text-black dark:text-gray-300 text-base font-thin text-left pt-5">
+                    className="text-black text-base font-thin text-left pt-5">
                     Enter your login information to access the system.
                   </p>
                 </div>
@@ -271,7 +271,7 @@ const Login = () => {
                           onClick={togglePasswordVisiblity}
                         />
                         <label
-                          className={`bg-white hover:bg-slate-100 dark:bg-slate-900 dark:hover:bg-slate-800  rounded-xl px-2 py-1 mt-1 text-lg text-gray-400 dark:text-gray-700 font-mono cursor-pointer js-password-label`}
+                          className={`bg-white hover:bg-slate-100 rounded-xl px-2 py-1 mt-1 text-lg text-gray-400 font-mono cursor-pointer js-password-label`}
                           htmlFor="toggle"
                         >
                           {passwordShown ? (
@@ -291,13 +291,13 @@ const Login = () => {
                   <div className="pb-3">
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input type="checkbox" className="sr-only peer" checked={persist} onChange={handleToggle} />
-                      <div className="w-[33px] h-[18px] bg-gray-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-gray-600"></div>
-                      <span className="ml-3 text-sm font-medium text-gray-700 dark:text-gray-200"> Trust this device</span>
+                      <div className="w-[33px] h-[18px] bg-gray-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-gray-600"></div>
+                      <span className="ml-3 text-sm font-medium text-gray-700"> Trust this device</span>
                     </label>
                   </div>
 
                 <button
-                  className="w-full px-4 py-3  font-sans text-white bg-[#1E1E1E] hover:bg-slate-700 active:bg-slate-800 rounded-full duration-150">
+                  className="w-full px-4 py-3 cursor-pointer font-sans text-white bg-[#1E1E1E] hover:bg-slate-700 active:bg-slate-800 rounded-full duration-150">
                   LOGIN
                 </button>
 
@@ -309,7 +309,7 @@ const Login = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 1.5, duration: 0.75, ease: "easeIn" }}
                 className="flex  justify-center  gap-2 mt-20">
-                <p className="text-xs font-thin text-gray-500 dark:text-gray-400">Designed and developed by: </p>
+                <p className="text-xs font-thin text-gray-500">Designed and developed by: </p>
 
                 <a href='https:www.tyingknotworks.com/'
                   target='_blank' rel='noreferrer noopener'
