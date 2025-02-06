@@ -392,9 +392,9 @@ const Welcome = () => {
     const { entities: ordersEntities } = ordersData;
     const { entities: itemsEntities } = itemsData;
 
-       // Function to clean the dateTime string
-       const cleanDateTime = (dateTime) => {
-        return dateTime.replace(' at ', ', ');
+    // Function to clean the dateTime string
+    const cleanDateTime = (dateTime) => {
+      return dateTime.replace(' at ', ', ');
     };
 
     // Sort items by status
@@ -545,23 +545,28 @@ const Welcome = () => {
                 </p>
               </div>
             </div>
+
             <div className="mx-auto max-w-screen-xl  py-3  md:py-5">
               <div className="font-normal grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
                 <div className="rounded-lg border border-gray-100 bg-white ">
+                
                   <div className="flex flex-col mt-4 mx-4 mb-1">
                     <div className="flex justify-between text-[11px] font-semibold ">
 
-                      <div className="flex items-center tracking-widest text-gray-500">TOTAL SALES</div>
-                      <select
-                        title="Filter total sales"
-                        className="text-gray-600 tracking-wide border border-gray-200 outline-none p-1 rounded hover:bg-slate-100 cursor-pointer" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
-                        <option value="thisMonth">This Month</option>
-                        <option value="yesterday">Yesterday</option>
-                        <option value="thisWeek">This Week</option>
-                        <option value="lastWeek">Last Week</option>
-                        <option value="lastMonth">Last Month</option>
-                      </select>
+                      <label htmlFor="HeadlineAct" className="flex items-center tracking-widest text-gray-500">TOTAL SALES</label>
+              
+                        <select
+                          title="Filter total sales"
+                          name="HeadlineAct"
+                          id="HeadlineAct"
+                          className="bg-white border text-gray-600 border-gray-200 rounded-md  px-1 py-1 text-[11px] focus:outline-none focus:ring-green-500 focus:border-green-500" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
+                          <option value="thisMonth">This Month</option>
+                          <option value="yesterday">Yesterday</option>
+                          <option value="thisWeek">This Week</option>
+                          <option value="lastWeek">Last Week</option>
+                          <option value="lastMonth">Last Month</option>
+                        </select>
                     </div>
                     <div className="text-2xl font-medium text-gray-900"> {formatCurrency(totalSales)}</div>
                   </div>
