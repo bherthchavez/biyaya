@@ -188,8 +188,8 @@ function Modal({ isOpen, onClose, orderId, backDateOrder }) {
 
                   <BsThreeDotsVertical />
                   {printNav &&
-                    <div className="absolute left-[-6px] z-50 origin-top-right bg-white border border-gray-200 mt-2 w-48 rounded-md shadow-lg">
-                      <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l rotate-45 absolute left-3"></div>
+                    <div className="absolute left-[-6px] origin-top-right bg-white border border-gray-200 mt-2 w-48 rounded-md shadow-lg">
+                      <div className="block top-[-7px] bg-white h-3 w-3 border-t border-l border-gray-200  rotate-45 absolute left-3"></div>
 
                       <div className="py-2">
                         <span

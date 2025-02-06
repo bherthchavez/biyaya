@@ -534,8 +534,8 @@ const Welcome = () => {
       <div aria-label="Page Header">
         <ReceiptModal isOpen={isModalOpen} onClose={handleModalClose} orderId={orderId} />
 
-        <div className={`mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8 no-print`}>
-          <div className="mt-2">
+        <div className={`mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 no-print`}>
+          <div className="py-6">
             <div className="flex justify-between">
               <div>
                 <p className="text-xl font-bold text-gray-700 sm:text-2xl">
