@@ -556,12 +556,11 @@ const Welcome = () => {
 
                       <label htmlFor="HeadlineAct" className="flex items-center tracking-widest text-gray-500">TOTAL SALES</label>
               
-
                         <select
                           title="Filter total sales"
                           name="HeadlineAct"
                           id="HeadlineAct"
-                          className="bg-white border border-gray-200 rounded-md shadow-xs px-1 py-1 text-xs focus:outline-none focus:ring-green-500 focus:border-green-500" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
+                          className="bg-white border text-gray-600 border-gray-200 rounded-md  px-1 py-1 text-[11px] focus:outline-none focus:ring-green-500 focus:border-green-500" value={dateFilter} onChange={e => setDateFilter(e.target.value)}>
                           <option value="thisMonth">This Month</option>
                           <option value="yesterday">Yesterday</option>
                           <option value="thisWeek">This Week</option>
