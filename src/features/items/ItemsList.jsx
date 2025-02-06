@@ -186,7 +186,7 @@ const ItemsList = () => {
 
     
     const tableContent = currentData?.length && currentData.map((itemId) => <Item key={itemId} itemId={itemId} />)
-    const checkItems = Object.values(itemsEntities).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    const checkItems = Object.values(filteredItems).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 
 
     const handlePrevPage = () => {

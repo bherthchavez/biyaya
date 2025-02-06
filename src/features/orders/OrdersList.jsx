@@ -196,8 +196,7 @@ const OrdersList = () => {
     );
 
     const tableContent = currentData?.length && currentData.map((orderId) => <Order key={orderId} orderId={orderId} handleModalOpen={handleModalOpen} />)
-    const checkOrders = Object.values(ordersEntities).sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
-
+    const checkOrders = Object.values(filteredOrders).sort((a, b) => new Date(b.dateTime) - new Date(a.dateTime))
 
 
     const handlePrevPage = () => {
