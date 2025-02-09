@@ -29,7 +29,7 @@
 }
 
 .bg-biyaya {
-  background-image: url("../src/assets/biyaya_shop.jpg"); /* Update the path to your image */
+  background-image: url("../src/assets/biyaya_shop.png"); /* Update the path to your image */
 }
 
 @layer base {

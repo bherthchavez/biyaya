@@ -68,7 +68,7 @@ const PersistLogin = () => {
                             {error.data?.message}
                         </p>
                     </div>
-                    <Link to="/">
+                    <Link to="/login">
                         <p className="mt-6 text-sm px-4 py-2 text-white border font-normal border-gray-200 bg-black hover:bg-gray-700 rounded-full duration-150">
                             Please Login Again</p>
                     </Link>

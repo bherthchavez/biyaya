@@ -14,11 +14,11 @@ const pageLoader = () => {
                     <div className="flex flex-col sm:flex-row justify-center text-center items-center gap-2 mt-16">
                         <p className="text-xs font-thin text-gray-400">Designed and developed by: </p>
 
-                        <a href='https://www.tyingknotworks.com/'
+                        <a href='https://julbertpruel.netlify.app/'
                             target='_blank' rel='noreferrer noopener'
                             className=" font-normal text-xs text-gray-400"
                         >
-                            TyingKnot Works
+                            Julbert Pruel
                         </a>
                     </div>
                 </div>

@@ -135,11 +135,11 @@ const Login = () => {
             <div className="flex items-center gap-2 mt-16">
               <p className="text-xs font-thin text-gray-600">Designed and developed by: </p>
 
-              <a href='https:www.tyingknotworks.com/'
+              <a href='https://julbertpruel.netlify.app/'
                 target='_blank' rel='noreferrer noopener'
                 className=" font-normal text-xs text-black"
               >
-                TyingKnot Works
+                Julbert Pruel
               </a>
             </div>
           </div>
@@ -311,11 +311,11 @@ const Login = () => {
                 className="flex  justify-center  gap-2 mt-20">
                 <p className="text-xs font-thin text-gray-500">Designed and developed by: </p>
 
-                <a href='https:www.tyingknotworks.com/'
+                <a href='https://julbertpruel.netlify.app/'
                   target='_blank' rel='noreferrer noopener'
                   className=" font-normal text-xs text-gray-600"
                 >
-                  TyingKnot Works
+                  Julbert Pruel
                 </a>
               </m.div>
             </div>

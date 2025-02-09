@@ -21,6 +21,7 @@ import POS from "./features/pos/POS";
 import AccessDenied from "./components/AccessDenied";
 import { POSProvider } from "./context/POSContext";
 import Reports from "./features/reports/Reports";
+import Landing from "./features/landing/Landing";
 
 
 function App() {
@@ -31,7 +32,8 @@ function App() {
       <POSProvider >
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Login />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/login" element={<Login />} />
 
             {/* <Route path="login" element={<Login />} /> */}
 
