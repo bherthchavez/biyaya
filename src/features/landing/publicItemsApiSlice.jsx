@@ -11,7 +11,7 @@ export const publicItemsApiSlice = apiSlice.injectEndpoints({
                 responseData.map((item) => ({
                     ...item
                 })),
-            providesTags: [{ type: "Item", id: "PUBLIC_LIST" }],
+            providesTags: [{ type: "Settings" }],
         }),
     }),
 });

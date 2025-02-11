@@ -79,7 +79,7 @@ const POS = () => {
 
                     </aside>
 
-                    <div className='z-20 sticky  top-[79px] lg:top-32  bg-white sm:bg-[#f1f1f1] border-b border-gray-200'>
+                    <div className='z-20 sticky top-[79px] lg:top-24  bg-white sm:bg-[#f1f1f1] border-b border-gray-200'>
                         <div className='flex flex-col px-6 lg:px-12 pt-5 pb-2'>
                             <div className='flex justify-between gap-2 items-center'>
                                 <h1 className="text-xl sm:text-2xl font-medium  text-gray-700 ">

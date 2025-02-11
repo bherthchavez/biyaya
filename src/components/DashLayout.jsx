@@ -15,7 +15,7 @@ const DashLayout = () => {
 
 
 
-  const classToggleSideMenu = toggleSideMenu ? `ml-16 lg:ml-44 ease-in-out duration-300` : `ml-16 ease-in-out duration-300`
+  const classToggleSideMenu = toggleSideMenu ? `ml-16 lg:ml-40 ease-in-out duration-300` : `ml-16 ease-in-out duration-300`
   const classToggleCart = toggleCart ? 'mr-0 lg:mr-80  ease-in-out duration-300' : 'mr-0 ease-in-out duration-300'
 
   return (

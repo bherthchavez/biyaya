@@ -279,7 +279,7 @@ const Welcome = () => {
             </p>
             <div className="mx-auto max-w-screen-xl  py-3  md:py-5">
               <dl className="font-normal grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                <article className="rounded-lg border border-gray-100 bg-white p-6">
+                <article className="rounded-lg shadow-sm bg-white p-6">
                   <div className="flex  text-sm flex-col gap-3 text-red-700">
                     <div className="flex flex-col  m-auto ">
                       <div className="m-auto">
@@ -549,7 +549,7 @@ const Welcome = () => {
             <div className="mx-auto max-w-screen-xl  py-3  md:py-5">
               <div className="font-normal grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
-                <div className="rounded-lg border border-gray-100 bg-white ">
+                <div className="rounded-lg shadow-sm bg-white ">
                 
                   <div className="flex flex-col mt-4 mx-4 mb-1">
                     <div className="flex justify-between text-[11px] font-semibold ">
@@ -610,7 +610,7 @@ const Welcome = () => {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-gray-100 bg-white">
+                <div className="rounded-lg shadow-sm bg-white">
                   <div className="flex items-center justify-between px-5 pt-4 pb-3 ">
                     <div className="flex flex-col">
                       <p className="text-[11px] font-semibold text-gray-500 tracking-widest">  TOTAL ORDERS </p>
@@ -662,7 +662,7 @@ const Welcome = () => {
                   </div>
                 </div>
 
-                <div className="rounded-lg border border-gray-100 bg-white p-6">
+                <div className="rounded-lg shadow-sm bg-white p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
                       <p className="text-[11px] font-semibold text-gray-500 tracking-widest">SALES TODAY</p>
@@ -682,7 +682,7 @@ const Welcome = () => {
                   </div>
                 </div>
 
-                <div className=" rounded-lg border border-gray-100 bg-white p-6">
+                <div className=" rounded-lg shadow-sm bg-white p-6">
                   <div className="flex items-center justify-between">
                     <div className="flex flex-col">
                       <p className="text-[11px] font-semibold text-gray-500 tracking-widest"> ORDERS TODAY </p>

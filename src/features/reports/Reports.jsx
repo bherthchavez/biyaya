@@ -205,7 +205,7 @@ const Reports = () => {
         <div aria-label="Page Header">
             <div className="mx-auto max-w-screen-xl px-4 py-2 sm:py-8 sm:px-6 lg:px-8 no-print">
                 <div className="mt-2 sm:mt-5">
-                    <div className="h-[100%] min-w-full rounded bg-white col-span-1 lg:col-span-2">
+                    <div className="h-[100%] min-w-full rounded-lg shadow-sm bg-white col-span-1 lg:col-span-2">
                         <div className="flex flex-col w-full h-full">
                             {/* Header Section */}
 
@@ -356,7 +356,7 @@ const Reports = () => {
                 </div>
 
                 {/* Summary Section */}
-                <div className="mt-2 flow-root bg-white mx-auto max-w-screen-xl rounded">
+                <div className="mt-2 flow-root bg-white mx-auto max-w-screen-xl rounded-lg shadow-sm">
                     <dl className="mx-5 divide-y divide-gray-200">
                         <div className="gap-1 py-3 flex justify-between text-lg">
                             <dt className="font-medium text-green-700">Gross Sales</dt>

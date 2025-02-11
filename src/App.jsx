@@ -22,6 +22,7 @@ import AccessDenied from "./components/AccessDenied";
 import { POSProvider } from "./context/POSContext";
 import Reports from "./features/reports/Reports";
 import Landing from "./features/landing/Landing";
+import Shop from "./features/settings/Shop";
 
 
 function App() {
@@ -97,14 +98,15 @@ function App() {
                     <Route index element={ <Reports />} />
                   </Route>{/* End orders */}
 
-                  <Route path="settings" element={<DashLayout />}>
+                  <Route path="settings/users" element={<DashLayout />}>
                     <Route index element={ <UsersList />} />
-
                     <Route path=":id" element={<EditUser /> } />
                     <Route path="new" element={<NewUserForm /> } />
-
-
-                  </Route>{/* End orders */}
+                  </Route>{/* End settings users */}
+                  
+                  <Route path="settings/shop" element={<DashLayout />}>
+                    <Route index element={ <Shop />} />
+                  </Route>{/* End settings shop */}
 
                 </Route>
               </Route>

@@ -20,7 +20,7 @@ const User = ({ userId, search }) => {
       user.position.toLowerCase().indexOf(search.toLowerCase()) > -1
     ) {
 
-      const handleEdit = () => navigate(`/settings/${userId}`);
+      const handleEdit = () => navigate(`/settings/users/${userId}`);
 
       return (
 

@@ -274,7 +274,7 @@ const ItemsList = () => {
           </div>
 
           <div className="grid grid-cols-1 mt-5">
-            <div className="h-[400px] 2xl:h-[500px] min-w-full rounded bg-white col-span-1 lg:col-span-2">
+            <div className="h-[400px] 2xl:h-[500px] min-w-full rounded-lg shadow-sm bg-white col-span-1 lg:col-span-2">
               <div className="h-5 bg-white mt-5 rounded-t-lg"></div>
               <div className="overflow-x-auto h-full bg-white min-w-full">
 

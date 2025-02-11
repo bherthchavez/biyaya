@@ -24,6 +24,7 @@ const NewUserForm = () => {
   const [status, setStatus] = useState("Out of Stock");
   const [imageView, setImageView] = useState("");
   const [image, setImage] = useState();
+  const [landingPage, setLandingPage] = useState(false)
 
   const navigate = useNavigate();
   const [addNewItem, { isLoading, isSuccess, isError, error }] = useAddNewItemMutation();
@@ -125,12 +126,15 @@ const NewUserForm = () => {
                 <div className="col-span-2 sm:col-span-1">
                   <InputField type="number" label="Price" value={price} onChange={handleInputChange(setPrice)} />
                   <SelectField label="Category" value={category} onChange={handleInputChange(setCategory)} options={categoryOptions} />
-                  <CheckboxField label="Stock management" checked={stockMGT} onChange={handleStockMGTChange} />
+                  <CheckboxField label="Stock management" name="Track stock quantity for this item" checked={stockMGT} onChange={handleStockMGTChange} />
                   {stockMGT ? (
                     <InputField type="number" label="Quantity" value={qty} onChange={handleQtyChange} />
                   ) : (
                     <SelectField label="Status" value={status} onChange={handleInputChange(setStatus)} options={statusOptions} />
                   )}
+
+                  <CheckboxField label="Landing Page" name="Display this item to Landing Page" checked={landingPage} onChange={()=> setLandingPage(prev => !prev)} />
+
                 </div>
               </div>
             </div>
@@ -206,14 +210,14 @@ const SelectField = ({ label, value, onChange, options }) => (
   </div>
 );
 
-const CheckboxField = ({ label, checked, onChange }) => (
+const CheckboxField = ({ label, name, checked, onChange }) => (
   <div className="mt-10 space-y-4  whitespace-nowrap">
     <label className="block text-base text-gray-500">{label}</label>
     <div className="mt-4">
       <label className="relative inline-flex items-center cursor-pointer">
         <input type="checkbox" className="sr-only peer" checked={checked} onChange={onChange} />
         <div className="w-[33px] h-[18px] bg-gray-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] sm:after:top-[5px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-gray-600"></div>
-        <span className="ml-3 text-xs lg:text-base text-gray-900">Track stock quantity for this item</span>
+        <span className="ml-3 text-xs lg:text-base text-gray-900">{name}</span>
       </label>
     </div>
   </div>

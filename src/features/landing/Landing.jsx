@@ -27,14 +27,20 @@ const Landing = () => {
   ];
 
 
-  const { data: settings, error, isLoading } = useGetPublicItemsQuery();
+  const { data: settings, error, isLoading } = useGetPublicItemsQuery("Settings",{
+    pollingInterval: 10000, // refresh data every 15 seconds
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+  });
+
 
   if (isLoading) return <PageLoader />;
 
-  const items = (Object.values(settings[0])).filter((item) => item.category === search);
+  const extractedItems = Object.values(settings[0]);
+  const items = extractedItems.filter((item) => item.category === search);
   const description = settings[1][0].description;
   const shopName = settings[1][0].shopName;
-
+  const shopOpen = settings[1][0].isOpen;
 
   const handleNextGallery = () => {
     setGalleryIndex((prev) => (prev + 1) % galleryImages.length);
@@ -54,9 +60,9 @@ const Landing = () => {
 
 
   return (
-    <div className="min-h-screen bg-white  text-gray-700">
+    <div className="min-h-screen bg-[#f6f8fb]  text-gray-700">
       {/* Navbar */}
-      <nav className="p-6 bg-white">
+      <nav className="p-6 shadow">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <img src={biyayaLogo} alt="Biyaya Logo" className="h-12" />
@@ -89,14 +95,15 @@ const Landing = () => {
           </div>
           {/* Text on the right */}
           <div className="order-2 md:order-2 text-left md:text-left">
-          
-            <span
-              className="inline-flex gap-2 items-center justify-center rounded-full bg-emerald-100 px-2.5 py-0.5 text-emerald-700"
-            >
-             <div className="p-1  bg-green-700 rounded-full animate-pulse"></div>
 
-              <p className="whitespace-nowrap text-xs sm:text-sm font-bold tracking-wider">WE ARE OPEN!</p>
+            <span
+              className={`${shopOpen ? 'bg-emerald-100 px-2.5 py-0.5 text-emerald-700' : 'bg-red-100 px-2.5 py-0.5 text-red-700' } inline-flex gap-2 items-center justify-center rounded-full`}
+            >
+              <div className={`${shopOpen ? 'bg-green-700' : 'bg-red-700'} p-1 rounded-full animate-pulse`}></div>
+
+              <p className="whitespace-nowrap text-xs sm:text-sm font-bold tracking-wider">{shopOpen ? 'We are open!' : 'Closed' } </p>
             </span>
+
             <h1 className="text-5xl md:text-7xl font-bold  text-slate-900">{`Welcome to`}</h1>
             <div className="mb-6 mt-1">
               <p className="whitespace-nowrap font-bold text-2xl sm:text-3xl text-gray-800">{shopName}</p>
@@ -114,43 +121,59 @@ const Landing = () => {
 
 
       {/* Menu Section */}
-      <div id="menu" className="py-16 h-screen">
-        <div className="container px-6">
-          <div className="flex flex-col mb-12 gap-6 justify-center">
+      {extractedItems.length &&
 
-            <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-800">Our Menu</h2>
-            <div className='grid grid-cols-1 min-w-full'>
-              <div className='flex whitespace-nowrap sm:justify-center overflow-y-auto py-3 gap-3 text-xs lg:text-lg'>
-                {itemCategories.map((category, idx) => (
-                  <div
-                    key={idx}
-                    title={category}
-                    onClick={() => onCategorySearch(category)}
-                    className={`${search === category ? 'bg-[#242424] text-white active:bg-black' : 'active:bg-white text-black hover:shadow'} flex justify-center items-center px-6 sm:px-8 py-2 cursor-pointer  border border-gray-300 rounded-full`} >
-                    {category}
-                  </div>
-                ))}
+        <div id="menu" className="py-16 h-screen">
+          <div className="container max-w-screen-xl mx-auto px-4 md:px-6 lg:px-8">
+            <div className="flex flex-col mb-12 gap-6 justify-center">
+              <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-800">
+                Our Menu
+              </h2>
+              <div className="grid grid-cols-1 min-w-full">
+                {/* Scrollable Categories */}
+                <div className="flex whitespace-nowrap sm:justify-center overflow-x-auto py-3 gap-3 text-xs lg:text-lg">
+                  {itemCategories.map((category, idx) => (
+                    <div
+                      key={idx}
+                      title={category}
+                      onClick={() => onCategorySearch(category)}
+                      className={`${search === category
+                        ? 'bg-[#242424] text-white active:bg-black'
+                        : 'active:bg-white text-black hover:shadow'
+                        } flex justify-center items-center px-6 sm:px-8 py-2 cursor-pointer border border-gray-300 rounded-full`}
+                    >
+                      {category}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 xl:md:grid-cols-5 gap-8">
-            {items.map((item, index) => (
-              <div
-                key={index}
-                className={` bg-white border-2 border-gray-200 p-4 rounded-4xl  text-center cursor-pointer hover:shadow-2xl transition duration-300`}
-                onClick={() => toggleItemDescription(index)}
-              >
-                <img src={item.avatar} alt={item.name} className="w-full h-24 md:h-40 object-cover rounded-3xl mb-4" />
-                <h3 className="text-xl font-bold mb-2">{item.name}</h3>
-                <p className="text-gray-700 mb-2">{formatCurrency(item.price)}</p>
-                {expandedItem === index && (
-                  <p className="text-gray-400 text-sm">{item.description}</p>
-                )}
-              </div>
-            ))}
+
+            {/* Menu Items Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              {items.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-sm p-4 text-center cursor-pointer hover:shadow-2xl transition duration-300"
+                  onClick={() => toggleItemDescription(index)}
+                >
+                  <img
+                    src={item.avatar}
+                    alt={item.name}
+                    className="w-full h-24 md:h-40 object-cover rounded-2xl mb-4"
+                  />
+                  <h3 className="text-lg md:text-xl font-bold mb-2">{item.name}</h3>
+                  <p className="text-gray-700 mb-2">{formatCurrency(item.price)}</p>
+                  {expandedItem === index && (
+                    <p className="text-gray-400 text-sm">{item.description}</p>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      }
+
 
       {/* Gallery Section */}
       <div id="gallery" className="container mx-auto px-6 py-16 h-screen">

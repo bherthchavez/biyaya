@@ -75,7 +75,7 @@ const EditUserForm = ({ user }) => {
       setPassword("");
       setImageView("");
       setImage("");
-      navigate("/settings");
+      navigate("/settings/users");
     }
   }, [isSuccess, isDelSuccess, navigate]);
 
@@ -504,7 +504,7 @@ const EditUserForm = ({ user }) => {
                     <span
                       title="Cancel"
                       disabled={!isLoading && !isDelLoading}
-                      onClick={() => !isLoading && !isDelLoading ? navigate("/settings") : undefined}
+                      onClick={() => !isLoading && !isDelLoading ? navigate("/settings/users") : undefined}
                       className={
                         !isLoading && !isDelLoading
                           ? `cursor-pointer flex px-6 py-3 text-black border border-gray-300   hover:bg-gray-200   rounded-full`

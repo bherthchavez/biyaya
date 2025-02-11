@@ -249,11 +249,11 @@ const DashHeader = ({ headerName }) => {
       <>
         <ReceiptModal isOpen={isModalOpen} onClose={handleModalClose} orderId={orderId} />
 
-        <div className={`bg-white  no-print sm:px-8 border  border-gray-200 flex z-30 sticky top-0 w-full ease-in-out duration-300 h-20 lg:h-32 items-center justify-between px-4 `}>
+        <div className={`bg-white  no-print sm:px-8 border  border-gray-200 flex z-30 sticky top-0 w-full ease-in-out duration-300 h-20 lg:h-24 items-center justify-between px-4 `}>
           <div className="flex items-center">
             <p className="flex">
               <span className="sr-only">Logo</span>
-              <span className="inline-block text-gray-700 text-2xl lg:text-3xl font-semibold">
+              <span className="inline-block text-gray-700 text-xl lg:text-2xl font-semibold">
                 {getHeaderName()}
               </span>
             </p>
@@ -381,7 +381,7 @@ const DashHeader = ({ headerName }) => {
                         <img
                           alt="Profile"
                           src={avatar}
-                          className="h-12 w-12 sm:h-13 sm:w-13 rounded-full object-cover border border-slate-300 "
+                          className="h-9 w-9 sm:h-10 sm:w-10 rounded-full object-cover border border-slate-300 "
                         />
                         <div className="ml-1 sm:mr-2 hidden sm:flex flex-col tracking-wide text-left">
                           <h1 className="font-medium text-xs sm:text-md text-gray-800 capitalize">

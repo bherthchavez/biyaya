@@ -57,7 +57,7 @@ const UsersList = () => {
                 Manage User
               </h1>
               <span
-                onClick={() => navigate("/settings/new")}
+                onClick={() => navigate("/settings/users/new")}
                 title='Add Item'
                 className="flex text-xs gap-2 sm:hidden items-center cursor-pointer  px-8 py-3 text-black border font-medium border-gray-300  hover:bg-gray-200 rounded-full duration-150"
               >
@@ -100,7 +100,7 @@ const UsersList = () => {
 
               <div className="flex">
                 <span
-                  onClick={() => navigate("/settings/new")}
+                  onClick={() => navigate("/settings/users/new")}
                   title='Add New Item'
                   className="hidden sm:flex gap-3 items-center cursor-pointer  px-8 py-3 text-black border font-medium border-gray-300  hover:bg-white rounded-full duration-150"
                 >

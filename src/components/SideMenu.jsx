@@ -16,9 +16,9 @@ import { VscGraph } from "react-icons/vsc";
 
 export const SideMenu = ({ toggleSideMenu, setToggleSideMenu, setHeaderName }) => {
 
-  
+
   const { setHeadSearch, orderTransac, setToggleCart,
-} = useContext(POSContext);
+  } = useContext(POSContext);
 
   const location = useLocation();
   const { isAdmin } = useAuth();
@@ -38,32 +38,32 @@ export const SideMenu = ({ toggleSideMenu, setToggleSideMenu, setHeaderName }) =
 
   if (isError) return <PageError error={error?.data?.message} />;
 
-  const onMenuClick = (path)=>{
+  const onMenuClick = (path) => {
     navigateMenu(path)
 
-    if(path === "/pos" && orderTransac?.items.length) {
+    if (path === "/pos" && orderTransac?.items.length) {
       setToggleCart(true)
-    }else{
+    } else {
       setHeadSearch('')
       setToggleCart(false)
-    } 
+    }
   }
 
-  const classToggleSideMenu = toggleSideMenu ? "w-16 lg:w-44" : "w-16";
+  const classToggleSideMenu = toggleSideMenu ? "w-16 lg:w-40" : "w-16";
 
   return (
     <div className={`z-40 flex h-full no-print fixed ${classToggleSideMenu} flex-col justify-between border border-gray-200 bg-white ease-in-out duration-300`}>
-      <div className={`${toggleSideMenu ? "py-7 lg:py-6" : "py-12"} ease-in-out duration-300`}>
+      <div className={`${toggleSideMenu ? "py-7 lg:py-5" : "py-7"} ease-in-out duration-300`}>
         <div
-          className={`cursor-pointer mx-auto w-10 ${toggleSideMenu ? "lg:w-20" : ""} rounded-lg text-xs text-gray-600 ease-in-out duration-300`}
+          className={`cursor-pointer mx-auto w-10 ${toggleSideMenu && "lg:w-16" } rounded-lg text-xs text-gray-600 ease-in-out duration-300`}
           onClick={() => setToggleSideMenu(!toggleSideMenu)}
         >
           <img src={biyayaLogo} alt="Logo" />
         </div>
-
-        <ul className={`${toggleSideMenu ? "mt-10 lg:mt-6" : "mt-10"} ease-in-out duration-300`}>
+        
+        <ul className={`${toggleSideMenu ? "mt-10 lg:mt-3" : "mt-7"} ease-in-out duration-300`}>
           <MenuItem
-            icon={MdDashboardCustomize }
+            icon={MdDashboardCustomize}
             label="Dashboard"
             path="/dashboard"
             toggleSideMenu={toggleSideMenu}
@@ -111,11 +111,15 @@ export const SideMenu = ({ toggleSideMenu, setToggleSideMenu, setHeaderName }) =
                 label="Settings"
                 path="/settings"
                 toggleSideMenu={toggleSideMenu}
-                isActive={location.pathname.startsWith("/settings") || location.pathname === "/settings/new"}
-                onClick={() => onMenuClick("/settings")}
+                isActiveShop={location.pathname.startsWith("/settings/shop")}
+                onClickShop={() => onMenuClick("/settings/shop")}
+                isActiveUsers={location.pathname.startsWith("/settings/users") || location.pathname === "/settings/user/new"}
+                onClickUser={() => onMenuClick("/settings/users")}
               />
+              
             </>
           )}
+
         </ul>
       </div>
       <div

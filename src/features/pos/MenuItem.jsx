@@ -84,7 +84,7 @@ const MenuItem = ({ itemId, search }) => {
         if (search !== 'All' && item.category === search) {
 
             return (
-                <div className="gap-3 flex flex-col justify-between bg-white rounded-3xl shadow-sm border border-gray-200 p-2 lg:p-4 text-center text-gray-800 hover:text-gray-500">
+                <div className="gap-3 flex flex-col justify-between bg-white rounded-lg shadow-sm border border-gray-200 p-2 lg:p-4 text-center text-gray-800 hover:text-gray-500">
                     <div className="text-4xl font-bold md:text-5xl flex flex-col">
                         <div className='h-20 w-full lg:h-36 lg:w-full object-cover border border-gray-200 rounded-3xl'>
                             <img
