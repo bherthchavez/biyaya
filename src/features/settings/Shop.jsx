@@ -1,139 +1,93 @@
 import React, { useState } from "react";
 
 const Shop = () => {
-  const [avatar, setAvatar] = useState(null);
-  const [email, setEmail] = useState("paweluna@howstuffworks.ca");
+
   const [isPublic, setIsPublic] = useState(false);
 
-  const handleAvatarChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      setAvatar(URL.createObjectURL(file));
-    }
-  };
-
-  const handleAvatarDelete = () => {
-    setAvatar(null);
-  };
-
-  const handleEmailChange = () => {
-    const newEmail = prompt("Enter new email:");
-    if (newEmail) {
-      setEmail(newEmail);
-    }
-  };
-
-  const handleSetPassword = () => {
-    alert("Set new password functionality here");
-  };
-
-  const handlePublicProfileToggle = () => {
-    setIsPublic(!isPublic);
-  };
-
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
-      <h1 className="text-2xl font-bold mb-6">My Account</h1>
+    <>
+      <div className="w-full bg-white p-6  border-gray-200 rounded-lg shadow-sm">
+        <h1 className="text-xl font-semibold  text-gray-500 ">
+        Shop Details
+        </h1>
+        <div className="flex items-center space-x-4 mt-10 mb-6">
+          <img
+            src="https://via.placeholder.com/80"
+            alt="Avatar"
+            className="w-20 h-20 rounded-full border"
+          />
+          <div>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-lg mr-2">Change avatar</button>
+            <button className="text-red-500">Delete avatar</button>
+          </div>
+        </div>
 
-      {/* Profile Details */}
-      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-        <h2 className="text-xl font-semibold mb-4">Profile Details</h2>
-        <div className="flex items-center space-x-4">
-          <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden">
-            {avatar ? (
-              <img src={avatar} alt="Avatar" className="w-full h-full object-cover" />
-            ) : (
-              <span className="text-gray-500">AV</span>
-            )}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="text-gray-700 font-medium">Business Name</label>
+            <input
+              type="text"
+              className="w-full mt-1 p-2 border rounded-lg"
+              value="Tabler"
+            />
           </div>
           <div>
-            <label className="cursor-pointer text-blue-600 hover:text-blue-700">
-              Change avatar
-              <input type="file" className="hidden" onChange={handleAvatarChange} />
-            </label>
-            <button
-              onClick={handleAvatarDelete}
-              className="ml-4 text-red-600 hover:text-red-700"
-            >
-              Delete avatar
-            </button>
+            <label className="text-gray-700 font-medium">Business ID</label>
+            <input
+              type="text"
+              className="w-full mt-1 p-2 border rounded-lg"
+              value="560afc32"
+              disabled
+            />
+          </div>
+          <div>
+            <label className="text-gray-700 font-medium">Location</label>
+            <input
+              type="text"
+              className="w-full mt-1 p-2 border rounded-lg"
+              value="Peimei, China"
+            />
           </div>
         </div>
-      </div>
 
-      {/* Business Profile */}
-      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-        <h2 className="text-xl font-semibold mb-4">Business Profile</h2>
-        <table className="w-full">
-          <thead>
-            <tr>
-              <th className="text-left py-2">Business Name</th>
-              <th className="text-left py-2">Business ID</th>
-              <th className="text-left py-2">Location</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className="py-2">Tabler</td>
-              <td className="py-2">560afc32</td>
-              <td className="py-2">Peimei, China</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      {/* Email */}
-      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-        <h2 className="text-xl font-semibold mb-4">Email</h2>
-        <p className="text-gray-600 mb-4">
-          This contact will be shown to others publicly, so choose it carefully.
-        </p>
-        <div className="flex items-center">
-          <span className="text-gray-800">{email}</span>
-          <button
-            onClick={handleEmailChange}
-            className="ml-4 text-blue-600 hover:text-blue-700"
-          >
-            Change
-          </button>
+        <div className="mt-6">
+          <label className="text-gray-700 font-medium">Email</label>
+          <div className="flex space-x-2 mt-1">
+            <input
+              type="email"
+              className="w-full p-2 border rounded-lg"
+              value="paweluna@howstuffworks.cor"
+            />
+            <button className="bg-gray-300 px-4 py-2 rounded-lg">Change</button>
+          </div>
         </div>
-      </div>
 
-      {/* Password */}
-      <div className="bg-white p-6 rounded-lg shadow-sm mb-6">
-        <h2 className="text-xl font-semibold mb-4">Password</h2>
-        <p className="text-gray-600 mb-4">
-          You can set a permanent password if you don’t want to use temporary login codes.
-        </p>
-        <button
-          onClick={handleSetPassword}
-          className="text-blue-600 hover:text-blue-700"
-        >
-          Set new password
-        </button>
-      </div>
+        <div className="mt-6">
+          <label className="text-gray-700 font-medium">Password</label>
+          <button className="block bg-gray-300 px-4 py-2 mt-2 rounded-lg">Set new password</button>
+        </div>
 
-      {/* Public Profile */}
-      <div className="bg-white p-6 rounded-lg shadow-sm">
-        <h2 className="text-xl font-semibold mb-4">Public Profile</h2>
-        <p className="text-gray-600 mb-4">
-          Making your profile public means that anyone on the Dashkit network will be able to find you.
-        </p>
-        <label className="flex items-center">
+        <div className="mt-6 flex items-center justify-between">
+          <label className="text-gray-700 font-medium">Public profile</label>
           <input
             type="checkbox"
             checked={isPublic}
-            onChange={handlePublicProfileToggle}
-            className="form-checkbox h-4 w-4 text-blue-600"
+            onChange={() => setIsPublic(!isPublic)}
+            className="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring focus:ring-blue-200"
           />
-          <span className="ml-2 text-gray-800">
-            You’re currently {isPublic ? "visible" : "invisible"}
-          </span>
-        </label>
+        </div>
+
+        <div className="mt-6 flex justify-end space-x-2">
+          <button className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
+          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg">Submit</button>
+        </div>
       </div>
-    </div>
+    </>
   );
+
 };
+
+
 
 
 export default Shop;

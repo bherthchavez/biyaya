@@ -111,10 +111,8 @@ export const SideMenu = ({ toggleSideMenu, setToggleSideMenu, setHeaderName }) =
                 label="Settings"
                 path="/settings"
                 toggleSideMenu={toggleSideMenu}
-                isActiveShop={location.pathname.startsWith("/settings/shop")}
-                onClickShop={() => onMenuClick("/settings/shop")}
-                isActiveUsers={location.pathname.startsWith("/settings/users") || location.pathname === "/settings/user/new"}
-                onClickUser={() => onMenuClick("/settings/users")}
+                isActive={location.pathname.startsWith("/settings/")}
+                onClick={() => onMenuClick("/settings/shop")}
               />
               
             </>

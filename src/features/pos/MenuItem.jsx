@@ -46,6 +46,7 @@ const MenuItem = ({ itemId, search }) => {
                     ...orderTransac,
                     items: tempRows,
                     total: orderTransac.total + tempObj.price, // Assuming you're recalculating the total
+                    cash: orderTransac.total + tempObj.price, // Assuming you're recalculating the total
                 });
             }
         } else {

@@ -50,9 +50,9 @@ const UsersList = () => {
     content = (
       <>
 
-        <div className="mx-auto  max-w-screen-xl  px-4 py-8 sm:px-6 lg:px-8 no-print">
+        <div className="w-full bg-white p-6  border-gray-200 rounded-lg shadow-sm no-print">
           <div className="sm:flex justify-between">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between ">
               <h1 className="text-xl font-semibold  text-gray-500 ">
                 Manage User
               </h1>
@@ -110,7 +110,7 @@ const UsersList = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 mt-10">
+          <div className="grid grid-cols-1 mt-5">
             <div className="font-normal px-6 sm:px-0 grid grid-cols-2 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-3 xl:gap-6 2xl:grid-cols-4 2xl:gap-6 ">
               {userContent}
             </div>

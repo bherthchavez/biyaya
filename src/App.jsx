@@ -22,7 +22,7 @@ import AccessDenied from "./components/AccessDenied";
 import { POSProvider } from "./context/POSContext";
 import Reports from "./features/reports/Reports";
 import Landing from "./features/landing/Landing";
-import Shop from "./features/settings/Shop";
+import SettingsMenu from "./features/settings/SettingsMenu";
 
 
 function App() {
@@ -99,13 +99,13 @@ function App() {
                   </Route>{/* End orders */}
 
                   <Route path="settings/users" element={<DashLayout />}>
-                    <Route index element={ <UsersList />} />
+                    <Route index element={ <SettingsMenu />} />
                     <Route path=":id" element={<EditUser /> } />
                     <Route path="new" element={<NewUserForm /> } />
                   </Route>{/* End settings users */}
                   
                   <Route path="settings/shop" element={<DashLayout />}>
-                    <Route index element={ <Shop />} />
+                    <Route index element={ <SettingsMenu />} />
                   </Route>{/* End settings shop */}
 
                 </Route>
