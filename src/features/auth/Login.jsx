@@ -13,6 +13,8 @@ import biyayaSmile2 from "../../assets/biyaya_smile2.jpg";
 import { FaRegUser } from "react-icons/fa";
 import { motion as m } from "framer-motion"
 import Carousel from "../../components/Carousel";
+import { motion } from "framer-motion";
+import { RiCupFill } from "react-icons/ri";
 
 const Login = () => {
   const userRef = useRef();
@@ -32,7 +34,7 @@ const Login = () => {
     setPasswordShown(passwordShown ? false : true);
   };
 
-  
+
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -76,85 +78,87 @@ const Login = () => {
   ];
 
   if (isLoading) return (
-    <div className="bg-white">
-    <div className="lg:grid h-screen lg:min-h-screen lg:grid-cols-12">
-      <div ref={userRef} className="relative flex h-48 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-        <Carousel slides={slides} />
-
-        <div className="hidden lg:relative lg:block lg:p-12">
-          <div className="block text-white">
-            <span className="sr-only">Home</span>
-
-            <img
-              alt="Logo"
-              src={biyayaLogo}
-              className="h-32 sm:h-32"
-            />
+    <div className="bg-white h-screen">
+      <div className="lg:grid lg:grid-cols-12 lg:min-h-screen">
+        {/* Left Section - Carousel & Branding */}
+        <div ref={userRef} className="relative flex h-48 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
+          <Carousel slides={slides} />
+          <div className="hidden lg:absolute lg:block lg:p-12 text-white">
+            <img alt="Logo" src={biyayaLogo} className="h-32 sm:h-32" />
+            <h2 className="mt-6 text-2xl font-bold sm:text-3xl md:text-4xl">
+              Welcome to Biyaya 🍵
+            </h2>
+            <p className="mt-4 leading-relaxed text-white/90">
+              Welcome to our cozy coffee haven! Whether you're here for your daily brew or a relaxing escape, we're delighted to serve you.
+            </p>
           </div>
-
-          <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
-            Welcome to Biyaya 🍵
-          </h2>
-
-          <p className="mt-4 leading-relaxed text-white/90">
-            Welcome to our cozy coffee haven! Whether you're here for your daily brew or a relaxing escape, we're delighted to serve you.
-          </p>
         </div>
-      </div>
 
-      <div
-        className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6"
-      >
-        <div className="flex flex-col  max-w-xl lg:max-w-3xl">
-          <div className="relative -mt-16 block lg:hidden">
-            <div
-              className="inline-flex size-28 items-center justify-center rounded-full bg-white sm:size-20"
-
-            >
-              <span className="sr-only">Home</span>
-              <img
-                alt="Logo"
-                src={biyayaLogo}
-
-              />
+        {/* Right Section - Login & Animation */}
+        <div className="flex items-center justify-center px-8 py-8 sm:px-12 lg:col-span-7 lg:px-16 lg:py-12 xl:col-span-6">
+          <div className="flex flex-col max-w-xl lg:max-w-3xl w-full">
+            {/* Mobile Logo & Title */}
+            <div className="relative -mt-16 block lg:hidden text-center">
+              <div className="inline-flex size-28 items-center justify-center rounded-full bg-white sm:size-20">
+                <img alt="Logo" src={biyayaLogo} className="h-20" />
+              </div>
+              <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+                Welcome to Biyaya 🍵
+              </h1>
             </div>
 
-            <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-              Welcome to Biyaya 🍵
-            </h1>
-          </div>
-          <div className="flex flex-col items-center  bg-white px-10 py-8 sm:py-10 sm:px-28 ease-in-out duration-300">
-
-            <img src={biyayaLogo} className='hidden sm:block animate-bounce shadow shadow-black  rounded-full h-[100px] xl:h-[100px] mx-auto ease-in-out duration-300' />
-            <div className="flex space-x-2 mt-20 sm:mt-0">
-              <span className='mr-3 border-t-transparent border-solid animate-spin  rounded-full border-slate-600 border-2 h-6 w-6'></span>
-
+            {/* Animation & Loading Text */}
+            <div className="flex flex-col items-center bg-white px-10 py-8 sm:py-10 sm:px-28 ease-in-out duration-300">
+              <motion.div
+                className="relative flex flex-col items-center mt-20 sm:mt-0"
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                {/* Steam Animation */}
+                <div className="absolute top-[-40px] flex space-x-2">
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="w-2 h-10 bg-gray-900 rounded-full"
+                      animate={{ y: [-10, -30, -10], opacity: [0.2, 1, 0] }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: i * 0.3,
+                        ease: 'easeInOut',
+                      }}
+                    />
+                  ))}
+                </div>
+                <RiCupFill size={90} className="text-gray-800" />
+              </motion.div>
               <div className='m-auto text-lg text-black'>Logging in ...</div>
             </div>
 
-            <div className="flex items-center gap-2 mt-16">
-              <p className="text-xs font-thin text-gray-600">Designed and developed by: </p>
-
-              <a href='https://julbertpruel.netlify.app/'
-                target='_blank' rel='noreferrer noopener'
-                className=" font-normal text-xs text-black"
+            {/* Footer */}
+            <div className="flex mx-auto gap-2 mt-16 text-gray-600 text-xs font-thin">
+              <p>Designed and developed by:</p>
+              <a
+                href='https://julbertpruel.netlify.app/'
+                target='_blank'
+                rel='noreferrer noopener'
+                className="font-normal text-black"
               >
                 Julbert Pruel
               </a>
             </div>
           </div>
         </div>
-
       </div>
-    </div >
-  </div >
-    
+    </div>
+
+
   )
 
 
   const content = (
     <>
-    <div className="bg-white ">
+      <div className="bg-white ">
         <div className="lg:grid h-screen lg:grid-cols-12">
           <div className="relative flex h-48 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
             <Carousel slides={slides} />
@@ -288,13 +292,13 @@ const Login = () => {
                 </div>
 
 
-                  <div className="pb-3">
-                    <label className="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" className="sr-only peer" checked={persist} onChange={handleToggle} />
-                      <div className="w-[33px] h-[18px] bg-gray-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-gray-600"></div>
-                      <span className="ml-3 text-sm font-medium text-gray-700"> Trust this device</span>
-                    </label>
-                  </div>
+                <div className="pb-3">
+                  <label className="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" className="sr-only peer" checked={persist} onChange={handleToggle} />
+                    <div className="w-[33px] h-[18px] bg-gray-200 flex-nowrap peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300  rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[3px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-[14px] after:w-[14px] after:transition-all peer-checked:bg-gray-600"></div>
+                    <span className="ml-3 text-sm font-medium text-gray-700"> Trust this device</span>
+                  </label>
+                </div>
 
                 <button
                   className="w-full px-4 py-3 cursor-pointer font-sans text-white bg-[#1E1E1E] hover:bg-slate-700 active:bg-slate-800 rounded-full duration-150">

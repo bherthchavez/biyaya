@@ -8,6 +8,7 @@ import biyayaShop from "../../assets/biyaya_shop.png";
 import biyayaSmile from "../../assets/biyaya_smile.jpg";
 import biyayaSmile2 from "../../assets/biyaya_smile2.jpg";
 import PageLoader from "../../components/PageLoader";
+import CoffeeLoadingAnimation from '../../components/CoffeeLoadingAnimation';
 
 
 
@@ -34,7 +35,7 @@ const Landing = () => {
   });
 
 
-  if (isLoading) return <PageLoader />;
+  if (isLoading) return <CoffeeLoadingAnimation />;
 
   const extractedItems = Object.values(settings[0]);
   const items = extractedItems.filter((item) => item.category === search);

@@ -53,7 +53,7 @@ export const SideMenu = ({ toggleSideMenu, setToggleSideMenu, setHeaderName }) =
 
   return (
     <div className={`z-40 flex h-full no-print fixed ${classToggleSideMenu} flex-col justify-between border border-gray-200 bg-white ease-in-out duration-300`}>
-      <div className={`${toggleSideMenu ? "py-7 lg:py-5" : "py-7"} ease-in-out duration-300`}>
+      <div className={`${toggleSideMenu ? "py-5 lg:py-5" : "py-7"} ease-in-out duration-300`}>
         <div
           className={`cursor-pointer mx-auto w-10 ${toggleSideMenu && "lg:w-16" } rounded-lg text-xs text-gray-600 ease-in-out duration-300`}
           onClick={() => setToggleSideMenu(!toggleSideMenu)}
@@ -61,7 +61,7 @@ export const SideMenu = ({ toggleSideMenu, setToggleSideMenu, setHeaderName }) =
           <img src={biyayaLogo} alt="Logo" />
         </div>
         
-        <ul className={`${toggleSideMenu ? "mt-10 lg:mt-3" : "mt-7"} ease-in-out duration-300`}>
+        <ul className={`${toggleSideMenu ? "mt-5 lg:mt-3" : "mt-7"} ease-in-out duration-300`}>
           <MenuItem
             icon={MdDashboardCustomize}
             label="Dashboard"

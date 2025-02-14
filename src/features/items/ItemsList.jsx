@@ -5,11 +5,10 @@ import Thead from "../../components/Thead";
 import Tbody from "../../components/Tbody";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
-import PageLoader from "../../components/PageLoader";
 import { IoMdAdd } from "react-icons/io";
-import PageError from "../../components/PageError";
 import { ImFilesEmpty } from "react-icons/im";
 import { MdErrorOutline, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
+import CoffeeLoadingAnimation from "../../components/CoffeeLoadingAnimation";
 
 
 const ItemsList = () => {
@@ -79,7 +78,7 @@ const ItemsList = () => {
 
   let content;
 
-  if (isLoading) content = <PageLoader />
+  if (isLoading) content = <CoffeeLoadingAnimation />
 
   if (isError) {
     content = (

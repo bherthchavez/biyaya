@@ -4,10 +4,10 @@ import Order from "./Order";
 import Thead from "../../components/Thead";
 import Tbody from "../../components/Tbody";
 import { useCallback, useEffect, useState } from "react";
-import PageLoader from "../../components/PageLoader";
 import ReceiptModal from "../../components/ReceiptModal"
 import { MdErrorOutline, MdOutlineKeyboardArrowLeft, MdOutlineKeyboardArrowRight } from "react-icons/md";
 import { ImFilesEmpty } from "react-icons/im";
+import CoffeeLoadingAnimation from "../../components/CoffeeLoadingAnimation";
 
 
 const OrdersList = () => {
@@ -94,7 +94,7 @@ const OrdersList = () => {
 
 
   if (isLoading) {
-    content = <PageLoader />
+    content = <CoffeeLoadingAnimation />
 
   } else if (isError) {
     content = (

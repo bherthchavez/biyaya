@@ -3,9 +3,9 @@ import { useGetUsersQuery } from "./usersApiSlice";
 import User from "./User";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import PageLoader from "../../components/PageLoader";
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import PageError from "../../components/PageError";
+import CoffeeLoadingAnimation from "../../components/CoffeeLoadingAnimation";
 
 const UsersList = () => {
 
@@ -29,7 +29,7 @@ const UsersList = () => {
 
   let content;
 
-  if (isLoading) content = <PageLoader />
+  if (isLoading) content = <CoffeeLoadingAnimation />
 
   if (isError) {
     content = <PageError error={error?.data?.message} />
